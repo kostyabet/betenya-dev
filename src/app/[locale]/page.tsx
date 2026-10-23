@@ -6,6 +6,7 @@ import { About } from '@/components/sections/about'
 import { Experience } from '@/components/sections/experience'
 import { Projects } from '@/components/sections/projects'
 import { Skills } from '@/components/sections/skills'
+import { Certificates } from '@/components/sections/certificates'
 import { Contacts } from '@/components/sections/contacts'
 
 /**
@@ -82,6 +83,7 @@ export default async function HomePage({ params }: PageProps<'/[locale]'>) {
       <About locale={locale} />
       <Experience locale={locale} />
       <Projects locale={locale} />
+      <Certificates locale={locale} />
       <Skills locale={locale} />
       <Contacts locale={locale} />
     </>

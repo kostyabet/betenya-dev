@@ -52,6 +52,10 @@ export interface ExperienceEntry {
   details?: Localized<string[]>
   links?: { href: string; label: Localized }[]
   tags: string[]
+  /** Средний балл (только для `education`), например `"9.2"`. */
+  avgGrade?: string
+  /** Путь к лого компании в `public/logos/` (у Farmaservice лого нет). */
+  logo?: string
 }
 
 export type ProjectStatus = 'released' | 'in-dev' | 'done'
@@ -75,6 +79,8 @@ export interface Project {
   /** URL-сегмент страницы проекта: `/ru/projects/<slug>`. */
   slug: string
   name: string
+  /** Путь к лого проекта в `public/logos/` (есть не у всех). */
+  logo?: string
   status: ProjectStatus
   /** Выделение особенного проекта цветом (см. ProjectAccent). */
   accent?: ProjectAccent
@@ -91,9 +97,42 @@ export interface SkillItem {
   name: string
   /** Помечает навык бейджем «изучаю». */
   learning?: boolean
+  /**
+   * Токены из `stack`/`tags` проектов и опыта, которые считаются этим навыком
+   * (для подсчёта вхождений). Если не задано — берётся `[name]`. Нужно, когда
+   * подпись навыка не совпадает с токеном (`AWS (EC2…)` ← `AWS`).
+   */
+  match?: string[]
 }
 
 export interface SkillCategory {
   title: Localized
   items: SkillItem[]
+}
+
+export interface Certificate {
+  title: string
+  issuer: string
+  issuerUrl?: string
+  /** Формат: `2026-10`. */
+  issued: string
+  credentialId?: string
+}
+
+/**
+ * `slug` — у записи есть подстраница `/[locale]/olympiads/[slug]`.
+ * `accent` — произвольный hex-цвет (у каждого года свой фирменный), в
+ * отличие от фиксированной палитры ProjectAccent.
+ */
+export interface Olympiad {
+  slug: string
+  name: string
+  year: number
+  accent: string
+  /** Путь к лого в `public/`. */
+  logo: string
+  role: Localized
+  tagline: Localized
+  description: Localized<string[]>
+  links?: { href: string; label: Localized }[]
 }

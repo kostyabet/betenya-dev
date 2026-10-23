@@ -5,6 +5,7 @@ import { projects } from '@/content/projects'
 import type { Project, ProjectAccent } from '@/content/types'
 import { ui } from '@/content/ui'
 import { Section } from '@/components/section'
+import { TechPills } from '@/components/tech-pill'
 
 const STATUS_DOT: Record<Project['status'], string> = {
   released: 'bg-ok',
@@ -40,7 +41,15 @@ function FlagshipCard({ project, locale }: { project: Project; locale: Locale })
       style={cardStyle(project.accent)}
       className="group glass tinted col-span-full block rounded-3xl border p-6 transition duration-200 hover:-translate-y-0.5 sm:p-8"
     >
-      <div className="flex flex-wrap items-baseline gap-x-4 gap-y-2">
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+        {project.logo && (
+          <img
+            src={project.logo}
+            alt=""
+            aria-hidden="true"
+            className="border-glass-line size-9 shrink-0 rounded-lg border object-cover"
+          />
+        )}
         <h3 className="text-fg text-2xl font-bold tracking-tight">{project.name}</h3>
         <span className="font-mono text-xs" style={{ color: 'var(--tint)' }}>
           {ui.projects.flagship[locale]}
@@ -50,7 +59,7 @@ function FlagshipCard({ project, locale }: { project: Project; locale: Locale })
         </span>
       </div>
       <p className="text-muted mt-3 max-w-2xl leading-relaxed">{project.tagline[locale]}</p>
-      <p className="text-faint mt-5 font-mono text-xs">{project.stack.join(', ')}</p>
+      <TechPills items={project.stack} className="mt-5" />
     </Link>
   )
 }
@@ -64,12 +73,22 @@ function ProjectCard({ project, locale }: { project: Project; locale: Locale }) 
         project.accent ? 'tinted' : 'border-glass-line hover:border-accent'
       }`}
     >
-      <div className="flex items-baseline justify-between gap-3">
-        <h3 className="text-fg text-lg font-semibold">{project.name}</h3>
+      <div className="flex items-center justify-between gap-3">
+        <div className="flex items-center gap-2.5">
+          {project.logo && (
+            <img
+              src={project.logo}
+              alt=""
+              aria-hidden="true"
+              className="border-glass-line size-7 shrink-0 rounded-md border object-cover"
+            />
+          )}
+          <h3 className="text-fg text-lg font-semibold">{project.name}</h3>
+        </div>
         <ProjectStatus status={project.status} locale={locale} />
       </div>
       <p className="text-muted mt-2 text-sm leading-relaxed">{project.tagline[locale]}</p>
-      <p className="text-faint mt-4 font-mono text-xs">{project.stack.join(', ')}</p>
+      <TechPills items={project.stack} className="mt-4" />
     </Link>
   )
 }

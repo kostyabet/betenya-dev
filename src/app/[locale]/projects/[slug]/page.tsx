@@ -8,6 +8,7 @@ import { projects, getProject } from '@/content/projects'
 import type { ProjectLinkKind } from '@/content/types'
 import { ui } from '@/content/ui'
 import { ProjectStatus } from '@/components/sections/projects'
+import { TechPills } from '@/components/tech-pill'
 import { GithubIcon, TelegramIcon } from '@/components/brand-icons'
 
 export const dynamicParams = false
@@ -78,6 +79,14 @@ export default async function ProjectPage({ params }: PageProps<'/[locale]/proje
 
       <header className="mt-8">
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+          {project.logo && (
+            <img
+              src={project.logo}
+              alt=""
+              aria-hidden="true"
+              className="border-glass-line size-12 shrink-0 rounded-xl border object-cover"
+            />
+          )}
           <h1 className="text-fg font-display text-3xl font-semibold tracking-tight sm:text-4xl">
             {project.name}
           </h1>
@@ -107,7 +116,7 @@ export default async function ProjectPage({ params }: PageProps<'/[locale]/proje
 
       <section className="mt-10" aria-label={ui.projects.stack[locale]}>
         <h2 className="text-fg mb-3 text-sm font-medium">{ui.projects.stack[locale]}</h2>
-        <p className="text-faint font-mono text-sm">{project.stack.join(', ')}</p>
+        <TechPills items={project.stack} />
       </section>
 
       {project.links.length > 0 && (

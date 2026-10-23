@@ -39,6 +39,7 @@ export const projects: Project[] = [
   {
     slug: 'bsuir-time',
     name: 'Bsuir Time',
+    logo: '/logos/bsuir-time.jpg',
     accent: 'blue',
     status: 'released',
     tagline: {
@@ -93,6 +94,7 @@ export const projects: Project[] = [
   {
     slug: 'centry',
     name: 'Centry',
+    logo: '/logos/centry.jpg',
     accent: 'emerald',
     status: 'released',
     tagline: {
@@ -133,6 +135,7 @@ export const projects: Project[] = [
   {
     slug: 'tactics-game-fasm',
     name: 'TacticsGame',
+    logo: '/logos/tactics-game.png',
     accent: 'red',
     status: 'done',
     tagline: {
@@ -161,6 +164,7 @@ export const projects: Project[] = [
   {
     slug: 'rhizome',
     name: 'Rhizome',
+    logo: '/logos/rhizome.png',
     status: 'in-dev',
     tagline: {
       ru: 'P2P-протокол на Rust: Kademlia DHT и умная репликация',
@@ -195,6 +199,7 @@ export const projects: Project[] = [
   {
     slug: 'vscode-fasm-ext',
     name: 'FASM Ext for VS Code',
+    logo: '/logos/fasm-ext.png',
     status: 'done',
     tagline: {
       ru: 'Расширение VS Code для FlatASM: подсветка, сборка, отладка',
@@ -263,7 +268,7 @@ export const projects: Project[] = [
   {
     slug: 'news',
     name: 'News',
-    status: 'in-dev',
+    status: 'done',
     tagline: {
       ru: 'Пет-проект: новостная платформа в монорепе — mobile, web, API',
       en: 'Pet project: a news platform in a monorepo — mobile, web, API',

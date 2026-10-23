@@ -21,6 +21,7 @@ export const ui = {
     experience: { ru: 'Опыт', en: 'Experience' },
     projects: { ru: 'Проекты', en: 'Projects' },
     skills: { ru: 'Навыки', en: 'Skills' },
+    certificates: { ru: 'Сертификаты', en: 'Certificates' },
     contacts: { ru: 'Контакты', en: 'Contacts' },
   },
   experience: {
@@ -28,6 +29,9 @@ export const ui = {
     education: { ru: 'учёба', en: 'education' },
     backToTimeline: { ru: 'Весь опыт', en: 'All experience' },
     did: { ru: 'Чем занимался', en: 'What I did' },
+    olympiads: { ru: 'Олимпиады', en: 'Olympiads' },
+    publications: { ru: 'Публикации', en: 'Publications' },
+    avgGrade: { ru: 'Средний балл', en: 'GPA' },
   },
   projects: {
     status: {
@@ -44,6 +48,13 @@ export const ui = {
   },
   skills: {
     learning: { ru: 'изучаю', en: 'learning' },
+    usedIn: { ru: 'Где использовал', en: 'Used in' },
+  },
+  olympiads: {
+    backToList: { ru: 'Все олимпиады', en: 'All olympiads' },
+  },
+  certificates: {
+    issued: { ru: 'Выдан', en: 'Issued' },
   },
   contacts: {
     note: {

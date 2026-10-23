@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next'
 import { locales } from '@/lib/i18n'
 import { siteUrl } from '@/content/profile'
 import { projects } from '@/content/projects'
+import { olympiads } from '@/content/olympiads'
 import { experience } from '@/content/experience'
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -28,6 +29,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
           languages: {
             ru: `${siteUrl}/ru/projects/${project.slug}`,
             en: `${siteUrl}/en/projects/${project.slug}`,
+          },
+        },
+      })
+    }
+  }
+
+  for (const olympiad of olympiads) {
+    for (const locale of locales) {
+      entries.push({
+        url: `${siteUrl}/${locale}/olympiads/${olympiad.slug}`,
+        changeFrequency: 'monthly',
+        priority: 0.5,
+        alternates: {
+          languages: {
+            ru: `${siteUrl}/ru/olympiads/${olympiad.slug}`,
+            en: `${siteUrl}/en/olympiads/${olympiad.slug}`,
           },
         },
       })

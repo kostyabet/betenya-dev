@@ -1,14 +1,17 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { ArrowLeft, Globe } from 'lucide-react'
+import { ArrowLeft, FileText, Globe } from 'lucide-react'
+import type { CSSProperties } from 'react'
 import { isLocale, ogLocales } from '@/lib/i18n'
 import { formatDuration, formatPeriod, monthIndex } from '@/lib/format'
 import { experience, getExperience } from '@/content/experience'
+import { olympiads } from '@/content/olympiads'
 import type { ExperienceEntry } from '@/content/types'
 import type { Locale } from '@/lib/i18n'
 import { ui } from '@/content/ui'
 import { GithubIcon } from '@/components/brand-icons'
+import { TechPills } from '@/components/tech-pill'
 
 export const dynamicParams = false
 
@@ -82,7 +85,15 @@ export default async function ExperiencePage({
       </Link>
 
       <header className="mt-8">
-        <div className="flex flex-wrap items-baseline gap-x-4 gap-y-2">
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+          {entry.logo && (
+            <img
+              src={entry.logo}
+              alt=""
+              aria-hidden="true"
+              className="border-glass-line size-11 shrink-0 rounded-xl border object-cover"
+            />
+          )}
           <h1 className="text-fg font-display text-3xl font-semibold tracking-tight sm:text-4xl">
             {entry.company[locale]}
           </h1>
@@ -94,6 +105,7 @@ export default async function ExperiencePage({
         <p className="text-faint mt-2 font-mono text-sm">
           {formatPeriod(entry.period, locale, ui.experience.present[locale])} (
           {duration(entry, locale)})
+          {entry.avgGrade && ` · ${ui.experience.avgGrade[locale]}: ${entry.avgGrade}`}
         </p>
       </header>
 
@@ -117,16 +129,23 @@ export default async function ExperiencePage({
       {entry.tags.length > 0 && (
         <section className="mt-10" aria-label={ui.projects.stack[locale]}>
           <h2 className="text-fg mb-3 text-sm font-medium">{ui.projects.stack[locale]}</h2>
-          <p className="text-faint font-mono text-sm">{entry.tags.join(', ')}</p>
+          <TechPills items={entry.tags} />
         </section>
       )}
 
       {entry.links && entry.links.length > 0 && (
-        <section className="mt-10" aria-label={ui.projects.links[locale]}>
-          <h2 className="text-fg mb-3 text-sm font-medium">{ui.projects.links[locale]}</h2>
+        <section className="mt-10" aria-label={ui.experience.publications[locale]}>
+          <h2 className="text-fg mb-3 text-sm font-medium">
+            {entry.kind === 'education' ? ui.experience.publications[locale] : ui.projects.links[locale]}
+          </h2>
           <ul className="flex flex-wrap gap-3">
             {entry.links.map((link) => {
-              const Icon = link.href.includes('github.com') ? GithubIcon : Globe
+              const Icon =
+                entry.kind === 'education'
+                  ? FileText
+                  : link.href.includes('github.com')
+                    ? GithubIcon
+                    : Globe
               return (
                 <li key={link.href}>
                   <a
@@ -142,6 +161,37 @@ export default async function ExperiencePage({
               )
             })}
           </ul>
+        </section>
+      )}
+
+      {entry.kind === 'education' && (
+        <section className="mt-10" aria-label={ui.experience.olympiads[locale]}>
+          <h2 className="text-fg mb-3 text-sm font-medium">{ui.experience.olympiads[locale]}</h2>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {olympiads.map((olympiad) => (
+              <Link
+                key={olympiad.slug}
+                href={`/${locale}/olympiads/${olympiad.slug}`}
+                style={{ '--tint': olympiad.accent } as CSSProperties}
+                className="group glass tinted flex items-center gap-3 rounded-xl border p-4 transition duration-200 hover:-translate-y-0.5"
+              >
+                <img
+                  src={olympiad.logo}
+                  alt=""
+                  aria-hidden="true"
+                  className="size-12 shrink-0 rounded-lg object-cover"
+                />
+                <div>
+                  <h3 className="text-fg group-hover:text-accent font-semibold transition-colors">
+                    {olympiad.name}
+                  </h3>
+                  <p className="text-muted mt-0.5 text-sm leading-relaxed">
+                    {olympiad.tagline[locale]}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
         </section>
       )}
     </article>

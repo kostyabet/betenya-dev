@@ -5,6 +5,7 @@ export const experience: ExperienceEntry[] = [
     kind: 'work',
     slug: 'vazon-hub',
     company: { ru: 'Vazon Hub', en: 'Vazon Hub' },
+    logo: '/logos/vazon-hub.jpg',
     url: 'https://github.com/vazonhub',
     role: { ru: 'Founder, CTO', en: 'Founder, CTO' },
     period: { start: '2026-04', end: null },
@@ -43,6 +44,7 @@ export const experience: ExperienceEntry[] = [
     kind: 'work',
     slug: 'yumasoft',
     company: { ru: 'Yumasoft', en: 'Yumasoft' },
+    logo: '/logos/yumasoft.jpg',
     role: { ru: 'Full Stack Engineer', en: 'Full Stack Engineer' },
     period: { start: '2026-02', end: null },
     bullets: {
@@ -108,6 +110,7 @@ export const experience: ExperienceEntry[] = [
     kind: 'work',
     slug: 'blackout-studio',
     company: { ru: 'Blackout Studio', en: 'Blackout Studio' },
+    logo: '/logos/blackout-studio.jpg',
     role: { ru: 'Full Stack Engineer', en: 'Full Stack Engineer' },
     period: { start: '2025-01', end: '2025-08' },
     employment: { ru: 'part-time', en: 'part-time' },
@@ -139,6 +142,7 @@ export const experience: ExperienceEntry[] = [
     kind: 'work',
     slug: 'emotioniq',
     company: { ru: 'EmotionIQ', en: 'EmotionIQ' },
+    logo: '/logos/emotioniq.jpg',
     role: { ru: 'Software Engineer', en: 'Software Engineer' },
     period: { start: '2024-05', end: '2025-02' },
     employment: { ru: 'part-time', en: 'part-time' },
@@ -168,6 +172,7 @@ export const experience: ExperienceEntry[] = [
   },
   {
     kind: 'education',
+    slug: 'bsuir',
     company: { ru: 'БГУИР', en: 'BSUIR' },
     url: 'https://www.bsuir.by',
     role: {
@@ -175,16 +180,44 @@ export const experience: ExperienceEntry[] = [
       en: 'BSc, Computer Software Engineering',
     },
     period: { start: '2023-09', end: '2027-07' },
+    avgGrade: '8.8',
     bullets: {
       ru: [
         'Факультет компьютерных систем и сетей.',
-        'Параллельно верстал сайты для олимпиад университета.',
+        'Параллельно верстал промо-лендинги для 4 олимпиад университета.',
+        '2 публикации на студенческих научных конференциях БГУИР (2024, 2025).',
       ],
       en: [
         'Faculty of Computer Systems and Networks.',
-        'Built websites for the university’s programming olympiads along the way.',
+        'Built promo landing pages for 4 of the university’s olympiads along the way.',
+        '2 papers at BSUIR student research conferences (2024, 2025).',
       ],
     },
+    details: {
+      ru: [
+        'Учусь на факультете компьютерных систем и сетей БГУИР.',
+        'Параллельно с учёбой верстал промо-лендинги для университетских олимпиад по программированию — подробнее о каждой ниже.',
+        'Опубликовал два доклада на студенческих научных конференциях БГУИР: про фишинг как угрозу социальной инженерии (2024) и про методы исследования психоэмоционального состояния и гармонии личности (2025, в соавторстве с научным руководителем Д. А. Мозалевской).',
+      ],
+      en: [
+        'Studying at the Faculty of Computer Systems and Networks at BSUIR.',
+        'Alongside my studies I built promo landing pages for the university’s programming olympiads — more on each below.',
+        'Published two papers at BSUIR student research conferences: on phishing as a social engineering threat (2024) and on methods for studying psycho-emotional state and personal harmony (2025, with academic advisor D. A. Mozalevskaya).',
+      ],
+    },
+    links: [
+      {
+        href: 'https://libeldoc.bsuir.by/handle/123456789/56693',
+        label: { ru: 'Phishing in social engineering, 2024', en: 'Phishing in social engineering, 2024' },
+      },
+      {
+        href: 'https://libeldoc.bsuir.by/handle/123456789/60326',
+        label: {
+          ru: 'Методы исследования психоэмоционального состояния, 2025',
+          en: 'Methods for studying psycho-emotional state, 2025',
+        },
+      },
+    ],
     tags: [],
   },
 ]
