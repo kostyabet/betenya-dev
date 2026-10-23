@@ -159,6 +159,40 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: 'rhizome',
+    name: 'Rhizome',
+    status: 'in-dev',
+    tagline: {
+      ru: 'P2P-протокол на Rust: Kademlia DHT и умная репликация',
+      en: 'A Rust P2P protocol: Kademlia DHT and smart replication',
+    },
+    description: {
+      ru: [
+        'Rhizome — децентрализованная P2P-библиотека обмена сообщениями на Rust: маршрутизация через Kademlia DHT, автоматическая репликация данных на k ближайших нод и ранжирование контента — востребованное хранится дольше.',
+        'Полностью асинхронный стек на tokio, встраиваемое хранилище LMDB с ACID-транзакциями, подписи RSA, бинарный протокол MessagePack. Работает и как готовая CLI-нода, и как cargo-библиотека; опубликована на crates.io.',
+        'На этом проекте учу Rust всерьёз — без GC и с полной свободой в системном коде.',
+      ],
+      en: [
+        'Rhizome is a decentralized P2P messaging library in Rust: Kademlia DHT routing, automatic replication to the k nearest nodes and content ranking — data in demand lives longer.',
+        'A fully async stack on tokio, an embedded LMDB store with ACID transactions, RSA signatures and a MessagePack binary protocol. Ships both as a CLI node and as a cargo library; published on crates.io.',
+        'This is the project where I am learning Rust for real — no GC, full freedom in systems code.',
+      ],
+    },
+    stack: ['Rust', 'tokio', 'Kademlia DHT', 'LMDB', 'MessagePack'],
+    links: [
+      {
+        kind: 'github',
+        label: { ru: 'GitHub', en: 'GitHub' },
+        href: 'https://github.com/vazonhub/rhizome',
+      },
+      {
+        kind: 'marketplace',
+        label: { ru: 'crates.io', en: 'crates.io' },
+        href: 'https://crates.io/crates/rhizome-p2p',
+      },
+    ],
+  },
+  {
     slug: 'vscode-fasm-ext',
     name: 'FASM Ext for VS Code',
     status: 'done',
@@ -212,17 +246,17 @@ export const projects: Project[] = [
       {
         kind: 'github',
         label: { ru: 'expo-accessibility-plus', en: 'expo-accessibility-plus' },
-        href: 'https://github.com/kostyabet/expo-accessibility-plus',
+        href: 'https://github.com/vazonhub/expo-accessibility-plus',
       },
       {
         kind: 'github',
         label: { ru: 'expo-icloud-kv', en: 'expo-icloud-kv' },
-        href: 'https://github.com/kostyabet/expo-icloud-kv',
+        href: 'https://github.com/vazonhub/expo-icloud-kv',
       },
       {
         kind: 'github',
         label: { ru: 'expo-widgetkit-bridge', en: 'expo-widgetkit-bridge' },
-        href: 'https://github.com/kostyabet/expo-widgetkit-bridge',
+        href: 'https://github.com/vazonhub/expo-widgetkit-bridge',
       },
     ],
   },
@@ -302,6 +336,168 @@ export const projects: Project[] = [
         kind: 'github',
         label: { ru: 'GitHub', en: 'GitHub' },
         href: 'https://github.com/kostyabet/15PUZZLE-fasm',
+      },
+    ],
+  },
+  {
+    slug: 'remote-file-storage',
+    name: 'Remote File Storage',
+    status: 'done',
+    tagline: {
+      ru: 'Удалённое файловое хранилище на TypeScript',
+      en: 'A remote file storage in TypeScript',
+    },
+    description: {
+      ru: [
+        'Библиотека для работы с удалённым файловым хранилищем на TypeScript: загрузка, чтение и управление файлами по сети.',
+        // TODO: уточнить детали — протокол и сценарии использования.
+      ],
+      en: [
+        'A TypeScript library for working with a remote file storage: uploading, reading and managing files over the network.',
+      ],
+    },
+    stack: ['TypeScript', 'Node.js'],
+    links: [
+      {
+        kind: 'github',
+        label: { ru: 'GitHub', en: 'GitHub' },
+        href: 'https://github.com/kostyabet/remote_file_storage-ts',
+      },
+    ],
+  },
+  {
+    slug: 'tcp-socket-server',
+    name: 'TCP Socket Server',
+    status: 'done',
+    tagline: {
+      ru: 'Сервер на чистых TCP-сокетах',
+      en: 'A raw-socket TCP server',
+    },
+    description: {
+      ru: [
+        'Сервер на TypeScript поверх TCP-сокетов: собственный протокол обмена сообщениями без HTTP-обвязки.',
+        // TODO: уточнить детали протокола.
+      ],
+      en: [
+        'A TypeScript server built on raw TCP sockets: a custom message protocol with no HTTP layer.',
+      ],
+    },
+    stack: ['TypeScript', 'Node.js', 'TCP'],
+    links: [
+      {
+        kind: 'github',
+        label: { ru: 'GitHub', en: 'GitHub' },
+        href: 'https://github.com/kostyabet/tcpSocketServer-ts',
+      },
+    ],
+  },
+  {
+    slug: 'border-gen',
+    name: 'Border Gen',
+    status: 'released',
+    tagline: {
+      ru: 'Генератор CSS-рамок с живым предпросмотром',
+      en: 'A CSS border generator with live preview',
+    },
+    description: {
+      ru: [
+        'Небольшой веб-инструмент: крутишь параметры — видишь рамку и сразу забираешь готовый CSS. Сделан на Next.js, живёт на GitHub Pages.',
+      ],
+      en: [
+        'A small web tool: tweak the controls, see the border, copy the ready CSS. Built with Next.js, hosted on GitHub Pages.',
+      ],
+    },
+    stack: ['Next.js', 'TypeScript', 'CSS'],
+    links: [
+      {
+        kind: 'site',
+        label: { ru: 'Открыть', en: 'Open' },
+        href: 'https://kostyabet.github.io/border_gen/',
+      },
+      {
+        kind: 'github',
+        label: { ru: 'GitHub', en: 'GitHub' },
+        href: 'https://github.com/kostyabet/border_gen',
+      },
+    ],
+  },
+  {
+    slug: 'shadow-gen',
+    name: 'Shadow Gen',
+    status: 'released',
+    tagline: {
+      ru: 'Генератор CSS-теней с живым предпросмотром',
+      en: 'A CSS shadow generator with live preview',
+    },
+    description: {
+      ru: [
+        'Парный к Border Gen инструмент: подбор box-shadow вживую с готовым CSS на выходе. Next.js, GitHub Pages.',
+      ],
+      en: [
+        'A sibling of Border Gen: dial in a box-shadow live and copy the resulting CSS. Next.js, GitHub Pages.',
+      ],
+    },
+    stack: ['Next.js', 'TypeScript', 'CSS'],
+    links: [
+      {
+        kind: 'site',
+        label: { ru: 'Открыть', en: 'Open' },
+        href: 'https://kostyabet.github.io/shadow_gen/',
+      },
+      {
+        kind: 'github',
+        label: { ru: 'GitHub', en: 'GitHub' },
+        href: 'https://github.com/kostyabet/shadow_gen',
+      },
+    ],
+  },
+  {
+    slug: 'colors-list-fasm',
+    name: 'Colors List',
+    status: 'done',
+    tagline: {
+      ru: 'Все цвета MS-DOS одним экраном — на чистом FASM',
+      en: 'Every MS-DOS color on one screen — in pure FASM',
+    },
+    description: {
+      ru: [
+        'Крошечная программа на FASM в реальном режиме процессора: выводит палитру цветов MS-DOS. Из той же серии любви к низкоуровневому, что 15 Puzzle и TacticsGame.',
+      ],
+      en: [
+        'A tiny FASM program in real processor mode that prints the MS-DOS color palette. From the same low-level love affair as 15 Puzzle and TacticsGame.',
+      ],
+    },
+    stack: ['FASM', 'Assembly', 'MS-DOS'],
+    links: [
+      {
+        kind: 'github',
+        label: { ru: 'GitHub', en: 'GitHub' },
+        href: 'https://github.com/kostyabet/colors_list-fasm',
+      },
+    ],
+  },
+  {
+    slug: 'task-control-manager',
+    name: 'Task Control Manager',
+    status: 'done',
+    tagline: {
+      ru: 'Тайм-менеджер на Delphi — первый большой пет-проект',
+      en: 'A Delphi time manager — my first big pet project',
+    },
+    description: {
+      ru: [
+        'Настольное приложение для планирования задач и распределения времени, написанное на Delphi в RAD Studio. Один из первых проектов — с него началась привычка доводить пет-проекты до конца.',
+      ],
+      en: [
+        'A desktop app for planning tasks and allocating time, written in Delphi with RAD Studio. One of my first projects — the one that started the habit of finishing pet projects.',
+      ],
+    },
+    stack: ['Delphi', 'RAD Studio'],
+    links: [
+      {
+        kind: 'github',
+        label: { ru: 'GitHub', en: 'GitHub' },
+        href: 'https://github.com/kostyabet/task_control_manager-delphi',
       },
     ],
   },
