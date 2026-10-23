@@ -12,9 +12,10 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        // 308: вес обратных ссылок на betenya.dev передаётся канонической /ru
         source: '/',
         destination: '/ru',
-        permanent: false,
+        permanent: true,
       },
     ]
   },

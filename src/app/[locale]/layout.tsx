@@ -45,6 +45,32 @@ export async function generateMetadata({ params }: LayoutProps<'/[locale]'>): Pr
   const title = `${profile.name[locale]} — ${profile.role[locale]}`
   const description = profile.metaDescription[locale]
 
+  const keywords =
+    locale === 'ru'
+      ? [
+          'Константин Бетеня',
+          'Бетеня Константин',
+          'Konstantin Betenya',
+          'Kostya Betenya',
+          'software engineer Минск',
+          'fullstack разработчик',
+          'React Native разработчик',
+          'БГУИР',
+          'UniTime',
+          'Vazon Hub',
+        ]
+      : [
+          'Kostya Betenya',
+          'Konstantin Betenya',
+          'Константин Бетеня',
+          'software engineer Minsk',
+          'fullstack developer',
+          'React Native developer',
+          'BSUIR',
+          'UniTime',
+          'Vazon Hub',
+        ]
+
   return {
     metadataBase: new URL(siteUrl),
     title: {
@@ -52,6 +78,9 @@ export async function generateMetadata({ params }: LayoutProps<'/[locale]'>): Pr
       template: `%s — ${profile.name[locale]}`,
     },
     description,
+    keywords,
+    authors: [{ name: profile.name[locale], url: siteUrl }],
+    creator: profile.name[locale],
     alternates: {
       canonical: `/${locale}`,
       languages: { ru: '/ru', en: '/en', 'x-default': '/ru' },
