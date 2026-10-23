@@ -20,13 +20,14 @@ export const ui = {
     about: { ru: 'Обо мне', en: 'About' },
     experience: { ru: 'Опыт', en: 'Experience' },
     projects: { ru: 'Проекты', en: 'Projects' },
-    moreProjects: { ru: 'Ещё проекты', en: 'More projects' },
     skills: { ru: 'Навыки', en: 'Skills' },
     contacts: { ru: 'Контакты', en: 'Contacts' },
   },
   experience: {
     present: { ru: 'сейчас', en: 'present' },
     education: { ru: 'учёба', en: 'education' },
+    backToTimeline: { ru: 'Весь опыт', en: 'All experience' },
+    did: { ru: 'Чем занимался', en: 'What I did' },
   },
   projects: {
     status: {
@@ -34,6 +35,7 @@ export const ui = {
       'in-dev': { ru: 'в разработке', en: 'in development' },
       done: { ru: 'завершён', en: 'completed' },
     },
+    flagship: { ru: 'основной проект', en: 'flagship project' },
     stack: { ru: 'Стек', en: 'Stack' },
     links: { ru: 'Ссылки', en: 'Links' },
     highlights: { ru: 'Ключевое', en: 'Highlights' },
@@ -50,11 +52,7 @@ export const ui = {
     },
   },
   footer: {
-    madeWith: {
-      ru: 'Next.js, Tailwind CSS. Задеплоено на Vercel',
-      en: 'Next.js, Tailwind CSS. Deployed on Vercel',
-    },
-    source: { ru: 'Исходники сайта', en: 'Site source' },
+    building: { ru: 'строю', en: 'building' },
   },
   a11y: {
     mainNav: { ru: 'Основная навигация', en: 'Main navigation' },

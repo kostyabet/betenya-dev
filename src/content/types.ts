@@ -39,6 +39,8 @@ export interface Profile {
 export interface ExperienceEntry {
   /** `work` — работа, `education` — учёба (помечается в таймлайне). */
   kind: 'work' | 'education'
+  /** Есть slug — у записи есть подстраница `/[locale]/experience/[slug]`. */
+  slug?: string
   company: Localized
   url?: string
   role: Localized
@@ -46,10 +48,19 @@ export interface ExperienceEntry {
   period: { start: string; end: string | null }
   employment?: Localized
   bullets: Localized<string[]>
+  /** Абзацы подробного описания для подстраницы. */
+  details?: Localized<string[]>
+  links?: { href: string; label: Localized }[]
   tags: string[]
 }
 
 export type ProjectStatus = 'released' | 'in-dev' | 'done'
+
+/**
+ * Цветовое выделение карточки: `gold` — главный проект (растягивается на всю
+ * ширину грида), остальные — просто цветной оттенок особенных проектов.
+ */
+export type ProjectAccent = 'gold' | 'blue' | 'emerald' | 'red'
 
 export type ProjectLinkKind =
   'site' | 'github' | 'appstore' | 'googleplay' | 'telegram' | 'marketplace'
@@ -65,8 +76,8 @@ export interface Project {
   slug: string
   name: string
   status: ProjectStatus
-  /** Крупные проекты — карточки, остальные — компактный список. */
-  featured: boolean
+  /** Выделение особенного проекта цветом (см. ProjectAccent). */
+  accent?: ProjectAccent
   tagline: Localized
   /** Абзацы подробной страницы. */
   description: Localized<string[]>

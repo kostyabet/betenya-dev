@@ -3,7 +3,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-golos), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-unbounded), var(--font-golos), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, 'SF Mono', monospace;
 
   --color-bg: var(--bg);
@@ -12,6 +13,7 @@
   --color-muted: var(--muted);
   --color-faint: var(--faint);
   --color-line: var(--line);
+  --color-glass-line: var(--glass-border);
   --color-accent: var(--accent);
   --color-accent-contrast: var(--accent-contrast);
   --color-ok: var(--ok);
@@ -24,9 +26,19 @@
   --muted: #58616e;
   --faint: #8b93a1;
   --line: #e2e5ea;
-  --accent: #2554cc;
+  --accent: #2f52e0;
   --accent-contrast: #ffffff;
   --ok: #1a7f4e;
+  --glass: rgb(255 255 255 / 0.55);
+  --glass-border: rgb(23 26 32 / 0.08);
+  --glass-highlight: rgb(255 255 255 / 0.75);
+  --glass-shadow: rgb(23 26 32 / 0.1);
+  --glow-a: rgb(37 84 204 / 0.07);
+  --glow-b: rgb(99 91 255 / 0.05);
+  --tint-gold: #a97e12;
+  --tint-blue: #2554cc;
+  --tint-emerald: #1a7f4e;
+  --tint-red: #bd4028;
 }
 
 .dark {
@@ -39,6 +51,16 @@
   --accent: #7aa2ff;
   --accent-contrast: #0c1733;
   --ok: #4cc38a;
+  --glass: rgb(22 27 34 / 0.55);
+  --glass-border: rgb(255 255 255 / 0.1);
+  --glass-highlight: rgb(255 255 255 / 0.09);
+  --glass-shadow: rgb(0 0 0 / 0.45);
+  --glow-a: rgb(122 162 255 / 0.09);
+  --glow-b: rgb(99 91 255 / 0.08);
+  --tint-gold: #e3c565;
+  --tint-blue: #7aa2ff;
+  --tint-emerald: #4cc38a;
+  --tint-red: #ff8a73;
 }
 
 html {
@@ -61,6 +83,67 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+/* Мягкие цветовые блики на фоне — дают стеклянным панелям что преломлять. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(640px 420px at 85% -8%, var(--glow-a), transparent 70%),
+    radial-gradient(520px 380px at -12% 28%, var(--glow-b), transparent 70%),
+    radial-gradient(560px 400px at 72% 78%, var(--glow-b), transparent 72%);
+}
+
+/*
+ * Liquid glass: полупрозрачная заливка, блюр с насыщением и блик по верхней
+ * кромке. Цвет рамки — утилитой `border-glass-line` (см. @theme),
+ * чтобы hover-переопределения работали как обычно.
+ */
+@layer components {
+  .glass {
+    background: var(--glass);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    backdrop-filter: blur(20px) saturate(160%);
+    box-shadow:
+      inset 0 1px 0 0 var(--glass-highlight),
+      0 8px 24px -12px var(--glass-shadow);
+  }
+
+  /*
+   * Цветной оттенок особенной карточки. Цвет задаётся переменной --tint
+   * (style={{ '--tint': 'var(--tint-gold)' }}), поверх .glass.
+   */
+  .tinted {
+    border-color: color-mix(in oklab, var(--tint) 45%, var(--glass-border));
+    background:
+      linear-gradient(135deg, color-mix(in oklab, var(--tint) 14%, transparent), transparent 55%),
+      var(--glass);
+  }
+
+  .tinted:hover {
+    border-color: var(--tint);
+    background:
+      linear-gradient(135deg, color-mix(in oklab, var(--tint) 24%, transparent), transparent 62%),
+      var(--glass);
+  }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass {
+    background: var(--surface);
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass {
+    background: var(--surface);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
 }
 
 ::selection {

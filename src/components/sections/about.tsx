@@ -6,7 +6,7 @@ import { Section } from '@/components/section'
 export function About({ locale }: { locale: Locale }) {
   return (
     <Section id="about" title={ui.sections.about[locale]}>
-      <div className="text-muted max-w-2xl space-y-4 leading-relaxed">
+      <div className="text-muted max-w-3xl space-y-4 leading-relaxed">
         {profile.about[locale].map((paragraph) => (
           <p key={paragraph.slice(0, 32)}>{paragraph}</p>
         ))}

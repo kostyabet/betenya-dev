@@ -12,8 +12,8 @@ export const profile: Profile = {
     en: 'Software Engineer',
   },
   tagline: {
-    ru: 'Делаю веб-платформы днём и мобильные приложения, которые ощущаются нативными, — вечером.',
-    en: 'Web platforms by day, mobile apps that feel native by night.',
+    ru: 'Software engineer: делаю веб-платформы, мобильные приложения и свои продукты.',
+    en: 'Software engineer building web platforms, mobile apps and products of my own.',
   },
   metaDescription: {
     ru: 'Константин Бетеня — software engineer из Минска. Fullstack-разработка, мобильные приложения на React Native, свои продукты: UniTime, Bsuir Time, Centry.',

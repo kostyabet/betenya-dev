@@ -1,5 +1,6 @@
 import { ImageResponse } from 'next/og'
 import { locales } from '@/lib/i18n'
+import { profile } from '@/content/profile'
 
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
@@ -38,9 +39,7 @@ export default function OpengraphImage() {
         <div style={{ fontSize: 40, color: '#9aa3b2' }}>Software Engineer</div>
       </div>
 
-      <div style={{ fontSize: 26, color: '#58616e' }}>
-        Web platforms by day, mobile apps that feel native by night
-      </div>
+      <div style={{ fontSize: 26, color: '#58616e' }}>{profile.tagline.en}</div>
     </div>,
     size,
   )

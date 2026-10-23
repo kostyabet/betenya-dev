@@ -34,9 +34,9 @@ pnpm format     # Prettier
 
 ## Как добавить проект
 
-1. В `src/content/projects.ts` добавь объект в массив `projects`:
+1. В `src/content/projects.ts` добавь объект в массив `projects` — карточки выводятся гридом по 3 в строку:
    - `slug` — сегмент URL (`/ru/projects/<slug>`), страница сгенерируется автоматически через `generateStaticParams`;
-   - `featured: true` — большая карточка на главной, `false` — строка в списке «Ещё проекты»;
+   - `accent` (опционально) — цветовое выделение особенного проекта: `gold` — главный проект (золотая карточка на всю ширину первой строкой, может быть только один), `blue` | `emerald` | `red` — цветной оттенок;
    - `status` — `released` | `in-dev` | `done`;
    - `links` — массив ссылок (`site`, `github`, `appstore`, `googleplay`, `telegram`, `marketplace`).
 2. Больше ничего делать не нужно: sitemap, OG-картинка и hreflang подхватятся сами.

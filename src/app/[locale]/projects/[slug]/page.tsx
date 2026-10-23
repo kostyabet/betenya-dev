@@ -78,7 +78,9 @@ export default async function ProjectPage({ params }: PageProps<'/[locale]/proje
 
       <header className="mt-8">
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-          <h1 className="text-fg text-3xl font-bold tracking-tight sm:text-4xl">{project.name}</h1>
+          <h1 className="text-fg font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+            {project.name}
+          </h1>
           <ProjectStatus status={project.status} locale={locale} />
         </div>
         <p className="text-muted mt-3 max-w-2xl text-lg leading-relaxed">
@@ -120,7 +122,7 @@ export default async function ProjectPage({ params }: PageProps<'/[locale]/proje
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="border-line bg-surface text-fg hover:border-accent hover:text-accent inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition-colors"
+                    className="glass border-glass-line text-fg hover:border-accent hover:text-accent inline-flex items-center gap-2 rounded-xl border px-4 py-2 text-sm font-medium transition-colors"
                   >
                     <Icon width={16} height={16} aria-hidden="true" />
                     {link.label[locale]}

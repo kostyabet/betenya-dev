@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, JetBrains_Mono } from 'next/font/google'
+import { Golos_Text, JetBrains_Mono, Unbounded } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { locales, isLocale, ogLocales } from '@/lib/i18n'
 import { profile, siteUrl } from '@/content/profile'
@@ -8,9 +8,15 @@ import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import '../globals.css'
 
-const inter = Inter({
+const golos = Golos_Text({
   subsets: ['latin', 'cyrillic'],
-  variable: '--font-inter',
+  variable: '--font-golos',
+  display: 'swap',
+})
+
+const unbounded = Unbounded({
+  subsets: ['latin', 'cyrillic'],
+  variable: '--font-unbounded',
   display: 'swap',
 })
 
@@ -73,13 +79,13 @@ export default async function LocaleLayout({ children, params }: LayoutProps<'/[
   return (
     <html
       lang={locale}
-      className={`${inter.variable} ${jetbrainsMono.variable}`}
+      className={`${golos.variable} ${unbounded.variable} ${jetbrainsMono.variable}`}
       suppressHydrationWarning
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className="font-sans">
+      <body className="flex min-h-dvh flex-col font-sans">
         <a
           href="#main"
           className="bg-accent text-accent-contrast sr-only rounded-md px-4 py-2 focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-100"
@@ -87,7 +93,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<'/[
           {ui.a11y.skipToContent[locale]}
         </a>
         <Header locale={locale} />
-        <main id="main" className="mx-auto max-w-5xl px-5 sm:px-8">
+        <main id="main" className="mx-auto w-full max-w-7xl flex-1 px-5 sm:px-8">
           {children}
         </main>
         <Footer locale={locale} />

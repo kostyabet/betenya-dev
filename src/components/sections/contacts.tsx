@@ -30,7 +30,7 @@ export function Contacts({ locale }: { locale: Locale }) {
               <a
                 href={contact.href}
                 {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                className="group border-line bg-surface hover:border-accent flex items-center gap-4 rounded-lg border px-4 py-3.5 transition-colors"
+                className="group glass border-glass-line hover:border-accent flex items-center gap-4 rounded-2xl border px-4 py-3.5 transition-colors"
               >
                 <Icon
                   width={18}

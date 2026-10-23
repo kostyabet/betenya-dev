@@ -4,8 +4,8 @@ export const projects: Project[] = [
   {
     slug: 'unitime',
     name: 'UniTime',
+    accent: 'gold',
     status: 'in-dev',
-    featured: true,
     tagline: {
       ru: 'Расписание вуза, которому можно верить',
       en: 'A university schedule you can trust',
@@ -39,8 +39,8 @@ export const projects: Project[] = [
   {
     slug: 'bsuir-time',
     name: 'Bsuir Time',
+    accent: 'blue',
     status: 'released',
-    featured: true,
     tagline: {
       ru: 'Расписание БГУИР, которое ощущается нативным',
       en: 'A BSUIR class schedule that feels native',
@@ -93,8 +93,8 @@ export const projects: Project[] = [
   {
     slug: 'centry',
     name: 'Centry',
+    accent: 'emerald',
     status: 'released',
-    featured: true,
     tagline: {
       ru: 'Мультивалютный финансовый трекер: офлайн, ввод за 4 секунды',
       en: 'A multi-currency finance tracker: offline, 4-second entry',
@@ -133,8 +133,8 @@ export const projects: Project[] = [
   {
     slug: 'tactics-game-fasm',
     name: 'TacticsGame',
+    accent: 'red',
     status: 'done',
-    featured: true,
     tagline: {
       ru: 'Тактическая настолка, написанная на чистом FASM',
       en: 'A tactics board game written in pure FASM',
@@ -162,7 +162,6 @@ export const projects: Project[] = [
     slug: 'vscode-fasm-ext',
     name: 'FASM Ext for VS Code',
     status: 'done',
-    featured: false,
     tagline: {
       ru: 'Расширение VS Code для FlatASM: подсветка, сборка, отладка',
       en: 'A VS Code extension for FlatASM: highlighting, build, debug',
@@ -190,7 +189,6 @@ export const projects: Project[] = [
     slug: 'expo-native-modules',
     name: 'Expo native modules',
     status: 'released',
-    featured: false,
     tagline: {
       ru: 'Три open-source модуля для нативных фич в React Native / Expo',
       en: 'Three open-source modules for native features in React Native / Expo',
@@ -232,7 +230,6 @@ export const projects: Project[] = [
     slug: 'news',
     name: 'News',
     status: 'in-dev',
-    featured: false,
     tagline: {
       ru: 'Пет-проект: новостная платформа в монорепе — mobile, web, API',
       en: 'Pet project: a news platform in a monorepo — mobile, web, API',
@@ -260,7 +257,6 @@ export const projects: Project[] = [
     slug: 'crm-system',
     name: 'CRM System',
     status: 'done',
-    featured: false,
     tagline: {
       ru: 'Универсальная CRM для управления задачами',
       en: 'A universal CRM for task management',
@@ -288,7 +284,6 @@ export const projects: Project[] = [
     slug: '15puzzle-fasm',
     name: '15 Puzzle',
     status: 'done',
-    featured: false,
     tagline: {
       ru: 'Пятнашки на FASM в реальном режиме процессора под MS-DOS',
       en: 'The 15 puzzle in FASM, real mode, MS-DOS',

@@ -3,6 +3,7 @@ import type { ExperienceEntry } from './types'
 export const experience: ExperienceEntry[] = [
   {
     kind: 'work',
+    slug: 'vazon-hub',
     company: { ru: 'Vazon Hub', en: 'Vazon Hub' },
     url: 'https://github.com/vazonhub',
     role: { ru: 'Founder, CTO', en: 'Founder, CTO' },
@@ -20,10 +21,27 @@ export const experience: ExperienceEntry[] = [
         'Accessibility (VoiceOver, large text, high contrast), in-app purchases, ASO.',
       ],
     },
+    details: {
+      ru: [
+        'Vazon Hub — моя студия мобильных приложений: продукты для студентов и личных финансов, которые я веду сам — от идеи и дизайна до релиза в App Store и Google Play.',
+        'Начал с Bsuir Time — расписания БГУИР с виджетами и приложением для Apple Watch, затем выпустил Centry — финансовый трекер с офлайн-вводом за несколько секунд. Сейчас строю UniTime — расписание, которое работает сразу для нескольких университетов.',
+        'Внутри — React Native и Expo с нативными модулями: виджеты на WidgetKit и Glance, синхронизация через iCloud и Google Drive, доступность (VoiceOver, крупный текст, high contrast), внутренние покупки и ASO.',
+      ],
+      en: [
+        'Vazon Hub is my mobile app studio: products for students and personal finance that I run end-to-end — from idea and design to App Store and Google Play releases.',
+        'It started with Bsuir Time — a BSUIR schedule app with widgets and an Apple Watch app — followed by Centry, a finance tracker with offline entry in seconds. Now I am building UniTime: a schedule that works across multiple universities at once.',
+        'Under the hood it is React Native and Expo with native modules: WidgetKit and Glance widgets, iCloud and Google Drive sync, accessibility (VoiceOver, large text, high contrast), in-app purchases and ASO.',
+      ],
+    },
+    links: [
+      { href: 'https://github.com/vazonhub', label: { ru: 'GitHub студии', en: 'Studio GitHub' } },
+      { href: 'https://unitimes.app', label: { ru: 'UniTime', en: 'UniTime' } },
+    ],
     tags: ['React Native', 'Expo', 'TypeScript', 'Swift', 'WidgetKit'],
   },
   {
     kind: 'work',
+    slug: 'yumasoft',
     company: { ru: 'Yumasoft', en: 'Yumasoft' },
     role: { ru: 'Full Stack Engineer', en: 'Full Stack Engineer' },
     period: { start: '2026-02', end: null },
@@ -41,10 +59,24 @@ export const experience: ExperienceEntry[] = [
         'Set up a self-hosted GitLab with CI/CD and security rules for internal repositories.',
       ],
     },
+    details: {
+      ru: [
+        'Yumasoft — команда, в которой я работаю над финтех-продуктами на полном стеке: React на фронте, Nest.js с TypeORM на бэке.',
+        'Начинал с DataForge — DWH-платформы для работы с данными. С мая перешёл на WealthCharts — платформу для трейдинга, где отвечаю за интеграции брокерских платформ: подключаю новые фирмы к продукту и поддерживаю существующие интеграции.',
+        'Инфраструктура живёт в AWS: EC2, ECS, Lambda, DynamoDB, S3, ECR и code pipelines. Отдельно поднял офлайн-GitLab с CI/CD и security-правилами для внутренних репозиториев.',
+      ],
+      en: [
+        'Yumasoft is the team where I work on fintech products across the full stack: React on the front, Nest.js with TypeORM on the back.',
+        'I started on DataForge, a DWH platform. Since May I have been on WealthCharts — a trading platform where I own broker integrations: onboarding new firms into the product and maintaining existing integrations.',
+        'The infrastructure lives on AWS: EC2, ECS, Lambda, DynamoDB, S3, ECR and code pipelines. I also set up a self-hosted GitLab with CI/CD and security rules for internal repositories.',
+      ],
+    },
+    links: [{ href: 'https://www.wealthcharts.com', label: { ru: 'WealthCharts', en: 'WealthCharts' } }],
     tags: ['React', 'Nest.js', 'TypeORM', 'AWS', 'GitLab CI/CD', 'Ant Design'],
   },
   {
     kind: 'work',
+    slug: 'farmaservice',
     company: { ru: 'Farmaservice', en: 'Farmaservice' },
     role: { ru: 'Frontend Engineer', en: 'Frontend Engineer' },
     period: { start: '2025-05', end: '2025-09' },
@@ -60,10 +92,21 @@ export const experience: ExperienceEntry[] = [
         'Frontend PDF report generation and virtualization of large tables.',
       ],
     },
+    details: {
+      ru: [
+        'ERP-система для бухгалтеров: учёт и работа с товарами на предприятиях. Я отвечал за фронтенд.',
+        'Собрал архитектуру запросов на axios и стейт на zustand, графики — на recharts. Из интересного: генерация PDF-отчётов прямо на фронте и виртуализация таблиц, где строк — десятки тысяч.',
+      ],
+      en: [
+        'An ERP system for accountants: inventory and goods management for enterprises. I owned the frontend.',
+        'I built the query architecture on axios and state on zustand, with charts on recharts. The fun parts: PDF report generation right on the frontend and virtualization for tables with tens of thousands of rows.',
+      ],
+    },
     tags: ['React', 'TypeScript', 'Zustand', 'Recharts', 'Tailwind CSS', 'Ant Design'],
   },
   {
     kind: 'work',
+    slug: 'blackout-studio',
     company: { ru: 'Blackout Studio', en: 'Blackout Studio' },
     role: { ru: 'Full Stack Engineer', en: 'Full Stack Engineer' },
     period: { start: '2025-01', end: '2025-08' },
@@ -80,10 +123,21 @@ export const experience: ExperienceEntry[] = [
         'REST API with Node.js and Express, S3 storage, PWA support.',
       ],
     },
+    details: {
+      ru: [
+        'Внутренняя CRM-система компании: React, Redux Toolkit и MUI на фронте, REST API на Node.js и Express на бэке.',
+        'Сделал чат и уведомления на WebSocket с интеграцией Telegram-бота, S3-хранилище файлов и адаптацию интерфейса под PWA. Работал part-time параллельно с учёбой.',
+      ],
+      en: [
+        'The company’s internal CRM: React, Redux Toolkit and MUI on the front, a REST API on Node.js and Express on the back.',
+        'I built WebSocket chat and notifications with a Telegram bot integration, S3 file storage and PWA support. Worked part-time alongside university.',
+      ],
+    },
     tags: ['React', 'Redux Toolkit', 'Node.js', 'Express', 'WebSocket', 'MUI'],
   },
   {
     kind: 'work',
+    slug: 'emotioniq',
     company: { ru: 'EmotionIQ', en: 'EmotionIQ' },
     role: { ru: 'Software Engineer', en: 'Software Engineer' },
     period: { start: '2024-05', end: '2025-02' },
@@ -98,6 +152,16 @@ export const experience: ExperienceEntry[] = [
         'A web platform for analytics and statistics: frontend plus a REST API on Node.js with Express.',
         'CI/CD setup, UI/UX prototyping in Figma, S3 file storage.',
         'Took part in negotiations and spoke at public events to attract investment.',
+      ],
+    },
+    details: {
+      ru: [
+        'Веб-платформа аналитики и статистики: я делал фронтенд и REST API на Node.js с Express.',
+        'Настраивал CI/CD, прототипировал UI/UX в Figma, подключал файловое хранилище на S3. Помимо кода — участвовал в переговорах и выступал на публичных мероприятиях, когда команда привлекала инвестиции.',
+      ],
+      en: [
+        'A web platform for analytics and statistics: I built the frontend and a REST API on Node.js with Express.',
+        'I set up CI/CD, prototyped UI/UX in Figma and wired up S3 file storage. Beyond code — took part in negotiations and spoke at public events while the team was raising investment.',
       ],
     },
     tags: ['React', 'Node.js', 'Express', 'Tailwind CSS', 'Figma'],
@@ -124,3 +188,7 @@ export const experience: ExperienceEntry[] = [
     tags: [],
   },
 ]
+
+export function getExperience(slug: string): ExperienceEntry | undefined {
+  return experience.find((entry) => entry.slug === slug)
+}

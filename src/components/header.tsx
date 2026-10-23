@@ -8,8 +8,8 @@ const NAV_ANCHORS = ['about', 'experience', 'projects', 'skills', 'contacts'] as
 
 export function Header({ locale }: { locale: Locale }) {
   return (
-    <header className="border-line bg-bg/85 sticky top-0 z-50 border-b backdrop-blur-sm">
-      <div className="mx-auto flex h-14 max-w-5xl items-center justify-between gap-4 px-5 sm:px-8">
+    <header className="sticky top-3 z-50 px-4 sm:top-4 sm:px-6">
+      <div className="glass border-glass-line mx-auto flex h-12 max-w-5xl items-center justify-between gap-4 rounded-2xl border px-4 sm:px-6">
         <Link
           href={`/${locale}`}
           className="text-fg hover:text-accent font-mono text-sm font-medium transition-colors"
