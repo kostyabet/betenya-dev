@@ -1,5 +1,4 @@
 import { Fragment, type CSSProperties } from 'react'
-import Link from 'next/link'
 import { GraduationCap, FileText } from 'lucide-react'
 import type { Locale } from '@/lib/i18n'
 import { formatDuration, formatPeriod, monthIndex } from '@/lib/format'
@@ -104,9 +103,11 @@ function UniversityExtras({ locale, education }: { locale: Locale; education: Ex
         <p className="text-faint font-mono text-xs">{ui.experience.olympiads[locale]}</p>
         <div className="grid grid-cols-2 gap-2">
           {olympiads.map((olympiad) => (
-            <Link
+            <a
               key={olympiad.slug}
-              href={`/${locale}/olympiads/${olympiad.slug}`}
+              href={olympiad.links?.[0]?.href}
+              target="_blank"
+              rel="noopener noreferrer"
               style={{ '--tint': olympiad.accent } as CSSProperties}
               className="tinted glass border-glass-line flex flex-col items-center gap-1.5 rounded-lg border p-3 text-center transition duration-200 hover:-translate-y-0.5"
             >
@@ -117,7 +118,7 @@ function UniversityExtras({ locale, education }: { locale: Locale; education: Ex
                 className="size-8 shrink-0 rounded object-cover"
               />
               <span className="text-fg text-[11px] leading-tight font-medium">{olympiad.name}</span>
-            </Link>
+            </a>
           ))}
         </div>
       </div>
@@ -230,30 +231,16 @@ function Timeline({ locale, nowIdx }: { locale: Locale; nowIdx: number }) {
                   transform: `translateX(${left ? -12 : 12}px)`,
                 }}
               />
-              {entry.slug ? (
-                <Link
-                  href={`/${locale}/experience/${entry.slug}`}
-                  className={`glass border-glass-line hover:border-accent group relative block rounded-xl border p-4 transition duration-200 hover:-translate-y-0.5 ${ongoing ? 'self-start' : 'self-center'}`}
-                  style={{ gridColumn: left ? 1 : 3, gridRow: `${rowOf(end)} / ${cardRowEnd}` }}
-                >
-                  <div
-                    className="bg-line absolute top-4 h-px"
-                    style={{ width: 'calc(3rem - 14px)', [left ? 'left' : 'right']: '100%' }}
-                  />
-                  <EntryBody entry={entry} locale={locale} plainCompany />
-                </Link>
-              ) : (
-                <article
-                  className={`glass border-glass-line relative rounded-xl border p-4 ${ongoing ? 'self-start' : 'self-center'}`}
-                  style={{ gridColumn: left ? 1 : 3, gridRow: `${rowOf(end)} / ${cardRowEnd}` }}
-                >
-                  <div
-                    className="bg-line absolute top-4 h-px"
-                    style={{ width: 'calc(3rem - 14px)', [left ? 'left' : 'right']: '100%' }}
-                  />
-                  <EntryBody entry={entry} locale={locale} />
-                </article>
-              )}
+              <article
+                className={`glass border-glass-line relative rounded-xl border p-4 ${ongoing ? 'self-start' : 'self-center'}`}
+                style={{ gridColumn: left ? 1 : 3, gridRow: `${rowOf(end)} / ${cardRowEnd}` }}
+              >
+                <div
+                  className="bg-line absolute top-4 h-px"
+                  style={{ width: 'calc(3rem - 14px)', [left ? 'left' : 'right']: '100%' }}
+                />
+                <EntryBody entry={entry} locale={locale} />
+              </article>
             </Fragment>
           )
         })}
@@ -263,38 +250,19 @@ function Timeline({ locale, nowIdx }: { locale: Locale; nowIdx: number }) {
       {/* учёба: подпись у основания оси */}
       {education && (
         <div className="mt-4 flex flex-col items-center">
-          {education.slug ? (
-            <Link
-              href={`/${locale}/experience/${education.slug}`}
-              className="glass border-glass-line hover:border-accent group rounded-xl border px-4 py-2.5 text-center transition duration-200"
-            >
-              <p className="text-fg group-hover:text-accent flex items-center justify-center gap-2 text-sm font-semibold whitespace-nowrap transition-colors">
-                <GraduationCap size={15} aria-hidden="true" className="text-accent" />
-                {education.company[locale]}
-                <span className="text-muted font-mono text-xs font-normal">
-                  {ui.experience.education[locale]}
-                </span>
-              </p>
-              <p className="text-muted mt-0.5 text-xs whitespace-nowrap">{education.role[locale]}</p>
-              <p className="text-faint mt-0.5 font-mono text-xs whitespace-nowrap">
-                {formatPeriod(education.period, locale, ui.experience.present[locale])}
-              </p>
-            </Link>
-          ) : (
-            <div className="glass border-glass-line rounded-xl border px-4 py-2.5 text-center">
-              <p className="text-fg flex items-center justify-center gap-2 text-sm font-semibold whitespace-nowrap">
-                <GraduationCap size={15} aria-hidden="true" className="text-accent" />
-                <CompanyName entry={education} locale={locale} />
-                <span className="text-muted font-mono text-xs font-normal">
-                  {ui.experience.education[locale]}
-                </span>
-              </p>
-              <p className="text-muted mt-0.5 text-xs whitespace-nowrap">{education.role[locale]}</p>
-              <p className="text-faint mt-0.5 font-mono text-xs whitespace-nowrap">
-                {formatPeriod(education.period, locale, ui.experience.present[locale])}
-              </p>
-            </div>
-          )}
+          <div className="glass border-glass-line rounded-xl border px-4 py-2.5 text-center">
+            <p className="text-fg flex items-center justify-center gap-2 text-sm font-semibold whitespace-nowrap">
+              <GraduationCap size={15} aria-hidden="true" className="text-accent" />
+              <CompanyName entry={education} locale={locale} />
+              <span className="text-muted font-mono text-xs font-normal">
+                {ui.experience.education[locale]}
+              </span>
+            </p>
+            <p className="text-muted mt-0.5 text-xs whitespace-nowrap">{education.role[locale]}</p>
+            <p className="text-faint mt-0.5 font-mono text-xs whitespace-nowrap">
+              {formatPeriod(education.period, locale, ui.experience.present[locale])}
+            </p>
+          </div>
 
           <UniversityExtras locale={locale} education={education} />
         </div>
@@ -315,13 +283,8 @@ function StackedList({ locale }: { locale: Locale }) {
               {ui.experience.education[locale]}
             </p>
           )}
-          {entry.slug ? (
-            <Link href={`/${locale}/experience/${entry.slug}`} className="group block">
-              <EntryBody entry={entry} locale={locale} plainCompany />
-            </Link>
-          ) : (
-            <EntryBody entry={entry} locale={locale} />
-          )}
+          <EntryBody entry={entry} locale={locale} />
+
           {entry.kind === 'education' && <UniversityExtras locale={locale} education={entry} />}
         </li>
       ))}

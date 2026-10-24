@@ -1,4 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <rect width="64" height="64" rx="14" fill="#101318"/>
-  <text x="32" y="44" font-family="JetBrains Mono, SFMono-Regular, Menlo, monospace" font-size="30" font-weight="700" fill="#7aa2ff" text-anchor="middle">kb</text>
+  <g transform="translate(32 32) scale(0.78) translate(-43.5 -39)" fill="none" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <g stroke="#e8eaef">
+      <path d="M22 22 V56"/>
+      <path d="M22 39 L38 22"/>
+      <path d="M22 39 L38 56"/>
+    </g>
+    <g stroke="#7aa2ff">
+      <path d="M46 22 V56"/>
+      <path d="M46 22 H54 a9 9 0 0 1 0 17 H46"/>
+      <path d="M46 39 H56 a9 9 0 0 1 0 17 H46"/>
+    </g>
+  </g>
 </svg>

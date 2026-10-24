@@ -1,8 +1,7 @@
-import Link from 'next/link'
 import type { CSSProperties } from 'react'
 import type { Locale } from '@/lib/i18n'
 import { projects } from '@/content/projects'
-import type { Project, ProjectAccent } from '@/content/types'
+import type { Project, ProjectAccent, ProjectLinkKind } from '@/content/types'
 import { ui } from '@/content/ui'
 import { Section } from '@/components/section'
 import { TechPills } from '@/components/tech-pill'
@@ -11,6 +10,25 @@ const STATUS_DOT: Record<Project['status'], string> = {
   released: 'bg-ok',
   'in-dev': 'bg-accent',
   done: 'bg-faint',
+}
+
+/** Порядок предпочтения главной внешней ссылки карточки: живой продукт → магазин → репозиторий. */
+const LINK_PRIORITY: ProjectLinkKind[] = [
+  'site',
+  'appstore',
+  'googleplay',
+  'marketplace',
+  'github',
+  'telegram',
+]
+
+/** Куда ведёт карточка проекта (подстраниц больше нет — только внешний ресурс). */
+function primaryHref(project: Project): string | undefined {
+  for (const kind of LINK_PRIORITY) {
+    const link = project.links.find((l) => l.kind === kind)
+    if (link) return link.href
+  }
+  return project.links[0]?.href
 }
 
 const TINT_VAR: Record<ProjectAccent, string> = {
@@ -36,8 +54,10 @@ function cardStyle(accent?: ProjectAccent): CSSProperties | undefined {
 /** Золотая карточка главного проекта — первой строкой на всю ширину грида. */
 function FlagshipCard({ project, locale }: { project: Project; locale: Locale }) {
   return (
-    <Link
-      href={`/${locale}/projects/${project.slug}`}
+    <a
+      href={primaryHref(project)}
+      target="_blank"
+      rel="noopener noreferrer"
       style={cardStyle(project.accent)}
       className="group glass tinted col-span-full block rounded-3xl border p-6 transition duration-200 hover:-translate-y-0.5 sm:p-8"
     >
@@ -60,14 +80,16 @@ function FlagshipCard({ project, locale }: { project: Project; locale: Locale })
       </div>
       <p className="text-muted mt-3 max-w-2xl leading-relaxed">{project.tagline[locale]}</p>
       <TechPills items={project.stack} className="mt-5" />
-    </Link>
+    </a>
   )
 }
 
 function ProjectCard({ project, locale }: { project: Project; locale: Locale }) {
   return (
-    <Link
-      href={`/${locale}/projects/${project.slug}`}
+    <a
+      href={primaryHref(project)}
+      target="_blank"
+      rel="noopener noreferrer"
       style={cardStyle(project.accent)}
       className={`group glass block rounded-xl border p-5 transition duration-200 hover:-translate-y-0.5 ${
         project.accent ? 'tinted' : 'border-glass-line hover:border-accent'
@@ -89,7 +111,7 @@ function ProjectCard({ project, locale }: { project: Project; locale: Locale }) 
       </div>
       <p className="text-muted mt-2 text-sm leading-relaxed">{project.tagline[locale]}</p>
       <TechPills items={project.stack} className="mt-4" />
-    </Link>
+    </a>
   )
 }
 
