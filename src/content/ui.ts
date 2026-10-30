@@ -64,6 +64,7 @@ export const ui = {
   },
   footer: {
     building: { ru: 'строю', en: 'building' },
+    privacy: { ru: 'Политика конфиденциальности', en: 'Privacy Policy' },
   },
   a11y: {
     mainNav: { ru: 'Основная навигация', en: 'Main navigation' },

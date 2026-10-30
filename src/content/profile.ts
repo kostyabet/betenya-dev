@@ -17,7 +17,7 @@ export const profile: Profile = {
   },
   metaDescription: {
     ru: 'Константин Бетеня — software engineer из Минска. Fullstack-разработка, мобильные приложения на React Native, свои продукты: UniTime, Bsuir Time, Centry.',
-    en: 'Kostya Betenya — software engineer from Minsk. Fullstack development, React Native mobile apps, own products: UniTime, Bsuir Time, Centry.',
+    en: 'Kostya Betenya, software engineer from Minsk. Fullstack development, React Native mobile apps, own products: UniTime, Bsuir Time, Centry.',
   },
   location: {
     ru: 'Минск, Беларусь',
@@ -28,14 +28,14 @@ export const profile: Profile = {
       label: { ru: 'сейчас', en: 'now' },
       value: {
         ru: 'WealthCharts — интеграции брокерских платформ',
-        en: 'WealthCharts — broker platform integrations',
+        en: 'WealthCharts: broker platform integrations',
       },
     },
     {
       label: { ru: 'строю', en: 'building' },
       value: {
         ru: 'UniTime — расписание для нескольких вузов',
-        en: 'UniTime — schedules for multiple universities',
+        en: 'UniTime: schedules for multiple universities',
       },
       href: 'https://unitimes.app',
     },
@@ -55,8 +55,8 @@ export const profile: Profile = {
     ],
     en: [
       'I am a fullstack engineer. By day I work at Yumasoft on fintech products: I started on DataForge, a DWH platform, and now work on WealthCharts, where I onboard new brokerage firms into the product and maintain existing integrations. The toolkit around that is React, Nest.js and a solid chunk of AWS.',
-      'In the evenings I run Vazon Hub, my own mobile app studio. It started with Bsuir Time — a BSUIR schedule app with widgets, an Apple Watch app and cloud sync — then came Centry, a personal finance tracker, and now I am building UniTime, a schedule platform for multiple universities at once.',
-      'I study Computer Software Engineering at BSUIR. I enjoy low-level things — I wrote games and a VS Code extension for FASM — I self-host my services on a VPS with Dokploy and Docker, and I am steadily digging into data analytics.',
+      'In the evenings I run Vazon Hub, my own mobile app studio. It started with Bsuir Time (a BSUIR schedule app with widgets, an Apple Watch app and cloud sync), then came Centry, a personal finance tracker, and now I am building UniTime, a schedule platform for multiple universities at once.',
+      'I study Computer Software Engineering at BSUIR. I enjoy low-level things: I wrote games and a VS Code extension for FASM. I self-host my services on a VPS with Dokploy and Docker, and I am steadily digging into data analytics.',
     ],
   },
   contacts: [

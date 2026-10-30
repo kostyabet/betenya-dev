@@ -1,23 +1,23 @@
 import type { ReactNode } from 'react'
 import {
-  BadgeDollarSign,
-  Boxes,
-  Cable,
   Cloud,
   Code,
-  Container,
   Cpu,
+  CurrencyDollar,
   Database,
   Globe,
-  LayoutGrid,
-  Network,
+  HardDrives,
+  Lightning,
+  Package,
   PawPrint,
-  Server,
-  Terminal,
-  TrendingUp,
+  PlugsConnected,
+  ShareNetwork,
+  SquaresFour,
+  Stack,
+  TerminalWindow,
+  TrendUp,
   Watch,
-  Zap,
-} from 'lucide-react'
+} from '@phosphor-icons/react/dist/ssr'
 import type { SimpleIcon } from 'simple-icons'
 import {
   siAntdesign,
@@ -65,24 +65,24 @@ function Brand({ icon }: { icon: SimpleIcon }) {
   )
 }
 
-const lucideProps = { size: 14, strokeWidth: 1.8, 'aria-hidden': true } as const
+const iconProps = { size: 14, weight: 'light', 'aria-hidden': true } as const
 
 /*
  * Иконка для каждого навыка: брендовые — simple-icons, для небрендовых
- * понятий (SQL, LMDB, ASO…) подобраны смысловые из lucide. Ключ — точное
+ * понятий (SQL, LMDB, ASO…) подобраны смысловые из Phosphor. Ключ — точное
  * `name` из src/content/skills.ts.
  */
 const ICONS: Record<string, ReactNode> = {
   TypeScript: <Brand icon={siTypescript} />,
   JavaScript: <Brand icon={siJavascript} />,
-  SQL: <Database {...lucideProps} />,
+  SQL: <Database {...iconProps} />,
   Rust: <Brand icon={siRust} />,
-  'Assembly (FASM)': <Cpu {...lucideProps} />,
-  Delphi: <Code {...lucideProps} />,
+  'Assembly (FASM)': <Cpu {...iconProps} />,
+  Delphi: <Code {...iconProps} />,
   React: <Brand icon={siReact} />,
   'Next.js': <Brand icon={siNextdotjs} />,
   'Redux Toolkit': <Brand icon={siRedux} />,
-  Zustand: <PawPrint {...lucideProps} />,
+  Zustand: <PawPrint {...iconProps} />,
   'Tailwind CSS': <Brand icon={siTailwindcss} />,
   'Ant Design': <Brand icon={siAntdesign} />,
   MUI: <Brand icon={siMui} />,
@@ -91,10 +91,10 @@ const ICONS: Record<string, ReactNode> = {
   Expo: <Brand icon={siExpo} />,
   'Expo Modules (npm packages)': <Brand icon={siNpm} />,
   'Swift / Kotlin native modules': <Brand icon={siSwift} />,
-  'WidgetKit, App Intents': <LayoutGrid {...lucideProps} />,
-  'Apple Watch (WatchConnectivity)': <Watch {...lucideProps} />,
-  'In-App Purchases': <BadgeDollarSign {...lucideProps} />,
-  ASO: <TrendingUp {...lucideProps} />,
+  'WidgetKit, App Intents': <SquaresFour {...iconProps} />,
+  'Apple Watch (WatchConnectivity)': <Watch {...iconProps} />,
+  'In-App Purchases': <CurrencyDollar {...iconProps} />,
+  ASO: <TrendUp {...iconProps} />,
   'Node.js': <Brand icon={siNodedotjs} />,
   'Nest.js': <Brand icon={siNestjs} />,
   Express: <Brand icon={siExpress} />,
@@ -102,27 +102,27 @@ const ICONS: Record<string, ReactNode> = {
   Prisma: <Brand icon={siPrisma} />,
   PostgreSQL: <Brand icon={siPostgresql} />,
   MySQL: <Brand icon={siMysql} />,
-  LMDB: <Database {...lucideProps} />,
-  WebSocket: <Cable {...lucideProps} />,
-  TCP: <Network {...lucideProps} />,
-  'Kademlia DHT': <Network {...lucideProps} />,
-  MessagePack: <Boxes {...lucideProps} />,
-  tokio: <Zap {...lucideProps} />,
+  LMDB: <Database {...iconProps} />,
+  WebSocket: <PlugsConnected {...iconProps} />,
+  TCP: <ShareNetwork {...iconProps} />,
+  'Kademlia DHT': <ShareNetwork {...iconProps} />,
+  MessagePack: <Stack {...iconProps} />,
+  tokio: <Lightning {...iconProps} />,
   Docker: <Brand icon={siDocker} />,
-  'Dokploy (self-hosted VPS)': <Server {...lucideProps} />,
-  'AWS (EC2, ECS, Lambda, S3, DynamoDB)': <Cloud {...lucideProps} />,
-  'ECR, YCR registries': <Container {...lucideProps} />,
+  'Dokploy (self-hosted VPS)': <HardDrives {...iconProps} />,
+  'AWS (EC2, ECS, Lambda, S3, DynamoDB)': <Cloud {...iconProps} />,
+  'ECR, YCR registries': <Package {...iconProps} />,
   'GitLab CI/CD (self-hosted)': <Brand icon={siGitlab} />,
   'GitHub Actions': <Brand icon={siGithubactions} />,
   'Cloudflare Workers': <Brand icon={siCloudflareworkers} />,
-  'AlphaVPS, Vercel, hoster.by': <Globe {...lucideProps} />,
+  'AlphaVPS, Vercel, hoster.by': <Globe {...iconProps} />,
   Git: <Brand icon={siGit} />,
   Jira: <Brand icon={siJira} />,
   Figma: <Brand icon={siFigma} />,
   'Xcode, EAS': <Brand icon={siXcode} />,
-  'VS Code API': <Code {...lucideProps} />,
-  'RAD Studio': <Code {...lucideProps} />,
-  'MS-DOS': <Terminal {...lucideProps} />,
+  'VS Code API': <Code {...iconProps} />,
+  'RAD Studio': <Code {...iconProps} />,
+  'MS-DOS': <TerminalWindow {...iconProps} />,
   'Claude Code': <Brand icon={siClaude} />,
 }
 

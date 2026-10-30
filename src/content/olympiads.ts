@@ -19,7 +19,7 @@ export const olympiads: Olympiad[] = [
       ],
       en: [
         'Bsuir Open is BSUIR’s annual team championship in competitive programming: a qualifying round, semifinal and final for student and school teams.',
-        'For the XIV edition I built the championship’s promo landing page — a new seasonal brand color, the stage schedule and information for participants.',
+        'For the XIV edition I built the championship’s promo landing page: a new seasonal brand color, the stage schedule and information for participants.',
       ],
     },
     links: [
@@ -44,7 +44,7 @@ export const olympiads: Olympiad[] = [
       ],
       en: [
         'The XIII edition ran from March to May 2025: an online qualifying round, an in-person semifinal, and student/school finals at BSUIR.',
-        'I built that season’s landing page — its own color and design for the year, the stage schedule and team registration.',
+        'I built that season’s landing page: its own color and design for the year, the stage schedule and team registration.',
       ],
     },
     links: [
@@ -68,7 +68,7 @@ export const olympiads: Olympiad[] = [
         'Я сделал лендинг сезона с индивидуальным фиолетовым акцентом этого года.',
       ],
       en: [
-        'The XII edition: a qualifying round, a semifinal, and student and school finals — with teams from universities and schools.',
+        'The XII edition: a qualifying round, a semifinal, and student and school finals, with teams from universities and schools.',
         'I built that season’s landing page with its own purple accent for the year.',
       ],
     },

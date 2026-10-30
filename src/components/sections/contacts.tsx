@@ -1,4 +1,4 @@
-import { Mail } from 'lucide-react'
+import { EnvelopeSimple } from '@phosphor-icons/react/dist/ssr'
 import type { ComponentType, SVGProps } from 'react'
 import type { Locale } from '@/lib/i18n'
 import { profile } from '@/content/profile'
@@ -10,7 +10,7 @@ import { GithubIcon, InstagramIcon, LinkedinIcon, TelegramIcon } from '@/compone
 const CONTACT_ICONS: Record<ContactKind, ComponentType<SVGProps<SVGSVGElement>>> = {
   telegram: TelegramIcon,
   'telegram-channel': TelegramIcon,
-  email: Mail,
+  email: EnvelopeSimple,
   github: GithubIcon,
   linkedin: LinkedinIcon,
   instagram: InstagramIcon,
@@ -30,7 +30,7 @@ export function Contacts({ locale }: { locale: Locale }) {
               <a
                 href={contact.href}
                 {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                className="group glass border-glass-line hover:border-accent flex items-center gap-4 rounded-2xl border px-4 py-3.5 transition-colors"
+                className="group glass border-glass-line hover:border-accent flex items-center gap-4 rounded-xl border px-4 py-3.5 transition-colors"
               >
                 <Icon
                   width={18}

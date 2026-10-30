@@ -17,7 +17,7 @@ export const projects: Project[] = [
         // TODO: уточнить список первых поддерживаемых вузов и сроки релиза.
       ],
       en: [
-        'UniTime is a schedule platform for multiple universities at once, grown out of Bsuir Time. The idea is the same: a schedule that feels like a native app rather than a wrapper around the dean’s office website — but now for any connected university.',
+        'UniTime is a schedule platform for multiple universities at once, grown out of Bsuir Time. The idea is the same: a schedule that feels like a native app rather than a wrapper around the dean’s office website, but now for any connected university.',
         'The project is in active development: the system is designed so that adding a new university is a matter of writing an adapter for its API, not building a separate app.',
         // TODO: confirm the list of initially supported universities and release dates.
       ],
@@ -55,7 +55,7 @@ export const projects: Project[] = [
       en: [
         'A BSUIR class schedule with proper support for the 4-week cycle, auto-scroll to the current lesson, exams and announcements. Search is typo-tolerant; pinned groups and lecturers are prefetched in the background.',
         'What matters most here is the native feel: WidgetKit widgets (including Lock Screen) and Glance on Android, an Apple Watch app via WatchConnectivity, iCloud and Google Drive sync, real UITabBarController tabs and Liquid Glass on iOS 26+.',
-        'On top of that — a diary with a planner, streaks with freezes, room free/busy status via a self-hosted Cloudflare Worker, 24 alternative app icons, three languages and accessibility modes.',
+        'On top of that: a diary with a planner, streaks with freezes, room free/busy status via a self-hosted Cloudflare Worker, 24 alternative app icons, three languages and accessibility modes.',
       ],
     },
     highlights: {
@@ -108,9 +108,9 @@ export const projects: Project[] = [
         'Второе приложение студии Vazon: стек и дизайн-система унаследованы от Bsuir Time — Expo, строгий TypeScript, виджеты через WidgetKit и App Intents.',
       ],
       en: [
-        'Centry is a personal finance tracker for iOS built for people whose money lives in several currencies, partly in cash. It works fully offline — no server, no sign-up.',
+        'Centry is a personal finance tracker for iOS built for people whose money lives in several currencies, partly in cash. It works fully offline: no server, no sign-up.',
         'Its principles are non-negotiable: money is stored only in integer minor units, the exchange rate is fixed at transaction time, logging an expense takes four seconds at most, and there are zero settings screens before the first expense.',
-        'The second app of the Vazon studio: the stack and design system are inherited from Bsuir Time — Expo, strict TypeScript, widgets via WidgetKit and App Intents.',
+        'The second app of the Vazon studio: the stack and design system are inherited from Bsuir Time: Expo, strict TypeScript, widgets via WidgetKit and App Intents.',
       ],
     },
     stack: ['Expo', 'React Native', 'TypeScript', 'WidgetKit', 'App Intents'],
@@ -148,7 +148,7 @@ export const projects: Project[] = [
         'Самый залайканный проект на моём GitHub: оказалось, игры на ассемблере в 2025-м всё ещё кого-то радуют.',
       ],
       en: [
-        'A small turn-based tactics game in a Soviet setting, written entirely in FlatASM. No engines, no frameworks — just assembly and the urge to understand how things work at the lowest level.',
+        'A small turn-based tactics game in a Soviet setting, written entirely in FlatASM. No engines, no frameworks, just assembly and the urge to understand how things work at the lowest level.',
         'The most starred project on my GitHub: turns out assembly games still make people happy in 2025.',
       ],
     },
@@ -177,9 +177,9 @@ export const projects: Project[] = [
         'На этом проекте учу Rust всерьёз — без GC и с полной свободой в системном коде.',
       ],
       en: [
-        'Rhizome is a decentralized P2P messaging library in Rust: Kademlia DHT routing, automatic replication to the k nearest nodes and content ranking — data in demand lives longer.',
+        'Rhizome is a decentralized P2P messaging library in Rust: Kademlia DHT routing, automatic replication to the k nearest nodes and content ranking: data in demand lives longer.',
         'A fully async stack on tokio, an embedded LMDB store with ACID transactions, RSA signatures and a MessagePack binary protocol. Ships both as a CLI node and as a cargo library; published on crates.io.',
-        'This is the project where I am learning Rust for real — no GC, full freedom in systems code.',
+        'This is the project where I am learning Rust for real: no GC, full freedom in systems code.',
       ],
     },
     stack: ['Rust', 'tokio', 'Kademlia DHT', 'LMDB', 'MessagePack'],
@@ -212,7 +212,7 @@ export const projects: Project[] = [
       ],
       en: [
         'A VS Code extension that makes FlatASM development humane: highlighting for instructions, registers and macros, build-and-run on F5, OllyDbg debugger integration.',
-        'Born from my own pain during FASM projects — and turned out useful to others too.',
+        'Born from my own pain during FASM projects, and turned out useful to others too.',
       ],
     },
     stack: ['TypeScript', 'VS Code API'],
@@ -240,10 +240,10 @@ export const projects: Project[] = [
         'expo-widgetkit-bridge — перезагрузка виджетов iOS из React Native: мост в одну строку к reloadAllTimelines и reloadTimelines(ofKind:).',
       ],
       en: [
-        'A set of libraries that grew out of Bsuir Time and Centry — native capabilities missing from stock Expo:',
-        'expo-accessibility-plus — system accessibility flags that stock AccessibilityInfo does not expose: differentiate-without-color, reduce transparency, bold text, invert colors, content size category.',
-        'expo-icloud-kv — a key/value store backed by NSUbiquitousKeyValueStore: sync small pieces of app state across a user’s Apple devices with a Promise-based API.',
-        'expo-widgetkit-bridge — reload iOS widgets from React Native: a one-call bridge to reloadAllTimelines and reloadTimelines(ofKind:).',
+        'A set of libraries that grew out of Bsuir Time and Centry, adding native capabilities missing from stock Expo:',
+        'expo-accessibility-plus exposes the system accessibility flags stock AccessibilityInfo hides: differentiate-without-color, reduce transparency, bold text, invert colors, content size category.',
+        'expo-icloud-kv is a key/value store backed by NSUbiquitousKeyValueStore that syncs small pieces of app state across a user’s Apple devices with a Promise-based API.',
+        'expo-widgetkit-bridge reloads iOS widgets from React Native with a one-call bridge to reloadAllTimelines and reloadTimelines(ofKind:).',
       ],
     },
     stack: ['TypeScript', 'Swift', 'Expo Modules API'],
@@ -271,7 +271,7 @@ export const projects: Project[] = [
     status: 'done',
     tagline: {
       ru: 'Пет-проект: новостная платформа в монорепе — mobile, web, API',
-      en: 'Pet project: a news platform in a monorepo — mobile, web, API',
+      en: 'Pet project: a news platform in a monorepo (mobile, web, API)',
     },
     description: {
       ru: [
@@ -279,7 +279,7 @@ export const projects: Project[] = [
         // TODO: уточнить текущий статус и планы по проекту.
       ],
       en: [
-        'A news platform monorepo: a mobile app, a web client and a backend REST API in TypeScript. A playground for the full product cycle — from data schema to publishing.',
+        'A news platform monorepo: a mobile app, a web client and a backend REST API in TypeScript. A playground for the full product cycle, from data schema to publishing.',
         // TODO: clarify the current status and plans.
       ],
     },
@@ -462,7 +462,7 @@ export const projects: Project[] = [
     status: 'done',
     tagline: {
       ru: 'Все цвета MS-DOS одним экраном — на чистом FASM',
-      en: 'Every MS-DOS color on one screen — in pure FASM',
+      en: 'Every MS-DOS color on one screen, in pure FASM',
     },
     description: {
       ru: [
@@ -487,14 +487,14 @@ export const projects: Project[] = [
     status: 'done',
     tagline: {
       ru: 'Тайм-менеджер на Delphi — первый большой пет-проект',
-      en: 'A Delphi time manager — my first big pet project',
+      en: 'A Delphi time manager, my first big pet project',
     },
     description: {
       ru: [
         'Настольное приложение для планирования задач и распределения времени, написанное на Delphi в RAD Studio. Один из первых проектов — с него началась привычка доводить пет-проекты до конца.',
       ],
       en: [
-        'A desktop app for planning tasks and allocating time, written in Delphi with RAD Studio. One of my first projects — the one that started the habit of finishing pet projects.',
+        'A desktop app for planning tasks and allocating time, written in Delphi with RAD Studio. One of my first projects, the one that started the habit of finishing pet projects.',
       ],
     },
     stack: ['Delphi', 'RAD Studio'],

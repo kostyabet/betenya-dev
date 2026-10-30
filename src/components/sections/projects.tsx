@@ -59,7 +59,7 @@ function FlagshipCard({ project, locale }: { project: Project; locale: Locale })
       target="_blank"
       rel="noopener noreferrer"
       style={cardStyle(project.accent)}
-      className="group glass tinted col-span-full block rounded-3xl border p-6 transition duration-200 hover:-translate-y-0.5 sm:p-8"
+      className="group glass tinted col-span-full block rounded-xl border p-6 transition-colors sm:p-8"
     >
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
         {project.logo && (
@@ -91,7 +91,7 @@ function ProjectCard({ project, locale }: { project: Project; locale: Locale }) 
       target="_blank"
       rel="noopener noreferrer"
       style={cardStyle(project.accent)}
-      className={`group glass block rounded-xl border p-5 transition duration-200 hover:-translate-y-0.5 ${
+      className={`group glass block rounded-xl border p-5 transition-colors ${
         project.accent ? 'tinted' : 'border-glass-line hover:border-accent'
       }`}
     >

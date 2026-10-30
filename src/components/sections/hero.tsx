@@ -44,7 +44,7 @@ export function Hero({ locale }: { locale: Locale }) {
         </div>
 
         <dl
-          className="hero-enter glass border-glass-line divide-line/60 relative w-full max-w-xl divide-y overflow-hidden rounded-2xl border font-mono text-sm"
+          className="hero-enter glass border-glass-line divide-line/60 relative w-full max-w-xl divide-y overflow-hidden rounded-xl border font-mono text-sm"
           style={{ animationDelay: '180ms' }}
         >
         {/* блик по стеклу */}

@@ -1,5 +1,5 @@
 import { Fragment, type CSSProperties } from 'react'
-import { GraduationCap, FileText } from 'lucide-react'
+import { GraduationCap, FileText } from '@phosphor-icons/react/dist/ssr'
 import type { Locale } from '@/lib/i18n'
 import { formatDuration, formatPeriod, monthIndex } from '@/lib/format'
 import { experience } from '@/content/experience'
@@ -109,7 +109,7 @@ function UniversityExtras({ locale, education }: { locale: Locale; education: Ex
               target="_blank"
               rel="noopener noreferrer"
               style={{ '--tint': olympiad.accent } as CSSProperties}
-              className="tinted glass border-glass-line flex flex-col items-center gap-1.5 rounded-lg border p-3 text-center transition duration-200 hover:-translate-y-0.5"
+              className="tinted glass border-glass-line flex flex-col items-center gap-1.5 rounded-lg border p-3 text-center transition-colors"
             >
               <img
                 src={olympiad.logo}
@@ -132,9 +132,9 @@ function UniversityExtras({ locale, education }: { locale: Locale; education: Ex
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="glass border-glass-line hover:border-accent flex items-center gap-2 rounded-lg border px-3 py-2.5 text-xs font-medium transition duration-200 hover:-translate-y-0.5"
+              className="glass border-glass-line hover:border-accent flex items-center gap-2 rounded-lg border px-3 py-2.5 text-xs font-medium transition-colors"
             >
-              <FileText size={14} aria-hidden="true" className="text-accent shrink-0" />
+              <FileText size={14} weight="light" aria-hidden="true" className="text-accent shrink-0" />
               <span className="text-fg">{link.label[locale]}</span>
             </a>
           ))}
@@ -252,7 +252,7 @@ function Timeline({ locale, nowIdx }: { locale: Locale; nowIdx: number }) {
         <div className="mt-4 flex flex-col items-center">
           <div className="glass border-glass-line rounded-xl border px-4 py-2.5 text-center">
             <p className="text-fg flex items-center justify-center gap-2 text-sm font-semibold whitespace-nowrap">
-              <GraduationCap size={15} aria-hidden="true" className="text-accent" />
+              <GraduationCap size={15} weight="light" aria-hidden="true" className="text-accent" />
               <CompanyName entry={education} locale={locale} />
               <span className="text-muted font-mono text-xs font-normal">
                 {ui.experience.education[locale]}
@@ -279,7 +279,7 @@ function StackedList({ locale }: { locale: Locale }) {
         <li key={`${entry.company.en}-${entry.period.start}`}>
           {entry.kind === 'education' && (
             <p className="text-muted mb-1 flex items-center gap-1.5 font-mono text-xs">
-              <GraduationCap size={14} aria-hidden="true" />
+              <GraduationCap size={14} weight="light" aria-hidden="true" />
               {ui.experience.education[locale]}
             </p>
           )}

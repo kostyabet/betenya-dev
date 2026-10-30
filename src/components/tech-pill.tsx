@@ -1,19 +1,19 @@
 import type { ReactNode } from 'react'
 import {
   Binary,
-  Boxes,
-  Cable,
-  ChartArea,
+  ChartLine,
   Cloud,
   Code,
   Cpu,
   Database,
-  LayoutGrid,
-  Network,
+  Lightning,
   PawPrint,
-  Terminal,
-  Zap,
-} from 'lucide-react'
+  PlugsConnected,
+  ShareNetwork,
+  SquaresFour,
+  Stack,
+  TerminalWindow,
+} from '@phosphor-icons/react/dist/ssr'
 import type { SimpleIcon } from 'simple-icons'
 import {
   siAntdesign,
@@ -45,11 +45,11 @@ function Brand({ icon }: { icon: SimpleIcon }) {
   )
 }
 
-const lucideProps = { size: 13, strokeWidth: 1.8, 'aria-hidden': true } as const
+const iconProps = { size: 13, weight: 'light', 'aria-hidden': true } as const
 
 /*
  * Иконка для элемента стека/тега: брендовые — simple-icons, остальные —
- * смысловые из lucide. Ключ — точное значение из `stack`/`tags`
+ * смысловые из Phosphor. Ключ — точное значение из `stack`/`tags`
  * (src/content/projects.ts, experience.ts). Для неизвестного — дефолт.
  */
 const TECH_ICONS: Record<string, ReactNode> = {
@@ -59,7 +59,7 @@ const TECH_ICONS: Record<string, ReactNode> = {
   'React Native': <Brand icon={siReact} />,
   'Next.js': <Brand icon={siNextdotjs} />,
   'Redux Toolkit': <Brand icon={siRedux} />,
-  Zustand: <PawPrint {...lucideProps} />,
+  Zustand: <PawPrint {...iconProps} />,
   'Tailwind CSS': <Brand icon={siTailwindcss} />,
   'Ant Design': <Brand icon={siAntdesign} />,
   MUI: <Brand icon={siMui} />,
@@ -68,34 +68,34 @@ const TECH_ICONS: Record<string, ReactNode> = {
   'Expo SDK 54': <Brand icon={siExpo} />,
   'Expo Modules API': <Brand icon={siExpo} />,
   Swift: <Brand icon={siSwift} />,
-  WidgetKit: <LayoutGrid {...lucideProps} />,
-  'App Intents': <Zap {...lucideProps} />,
+  WidgetKit: <SquaresFour {...iconProps} />,
+  'App Intents': <Lightning {...iconProps} />,
   'Node.js': <Brand icon={siNodedotjs} />,
   'Nest.js': <Brand icon={siNestjs} />,
   Express: <Brand icon={siExpress} />,
   TypeORM: <Brand icon={siTypeorm} />,
-  WebSocket: <Cable {...lucideProps} />,
-  TCP: <Network {...lucideProps} />,
-  Recharts: <ChartArea {...lucideProps} />,
-  AWS: <Cloud {...lucideProps} />,
+  WebSocket: <PlugsConnected {...iconProps} />,
+  TCP: <ShareNetwork {...iconProps} />,
+  Recharts: <ChartLine {...iconProps} />,
+  AWS: <Cloud {...iconProps} />,
   'GitLab CI/CD': <Brand icon={siGitlab} />,
   'Cloudflare Workers': <Brand icon={siCloudflareworkers} />,
   Figma: <Brand icon={siFigma} />,
   Rust: <Brand icon={siRust} />,
-  tokio: <Zap {...lucideProps} />,
-  'Kademlia DHT': <Network {...lucideProps} />,
-  LMDB: <Database {...lucideProps} />,
-  MessagePack: <Boxes {...lucideProps} />,
-  'VS Code API': <Code {...lucideProps} />,
-  FASM: <Binary {...lucideProps} />,
-  Assembly: <Cpu {...lucideProps} />,
-  'MS-DOS': <Terminal {...lucideProps} />,
-  Delphi: <Code {...lucideProps} />,
-  'RAD Studio': <Code {...lucideProps} />,
+  tokio: <Lightning {...iconProps} />,
+  'Kademlia DHT': <ShareNetwork {...iconProps} />,
+  LMDB: <Database {...iconProps} />,
+  MessagePack: <Stack {...iconProps} />,
+  'VS Code API': <Code {...iconProps} />,
+  FASM: <Binary {...iconProps} />,
+  Assembly: <Cpu {...iconProps} />,
+  'MS-DOS': <TerminalWindow {...iconProps} />,
+  Delphi: <Code {...iconProps} />,
+  'RAD Studio': <Code {...iconProps} />,
 }
 
 function techIcon(name: string): ReactNode {
-  return TECH_ICONS[name] ?? <Code {...lucideProps} />
+  return TECH_ICONS[name] ?? <Code {...iconProps} />
 }
 
 /** Список элементов стека в виде «таблеток»: слева иконка, справа название. */

@@ -17,7 +17,7 @@ export const experience: ExperienceEntry[] = [
         'Доступность (VoiceOver, крупный текст, high contrast), внутренние покупки, ASO-оптимизация.',
       ],
       en: [
-        'Building a mobile app studio: Bsuir Time, Centry and UniTime — from idea to release on the App Store and Google Play.',
+        'Building a mobile app studio: Bsuir Time, Centry and UniTime, from idea to release on the App Store and Google Play.',
         'React Native / Expo with native modules: WidgetKit and Glance widgets, an Apple Watch app, cloud sync via iCloud and Google Drive.',
         'Accessibility (VoiceOver, large text, high contrast), in-app purchases, ASO.',
       ],
@@ -29,8 +29,8 @@ export const experience: ExperienceEntry[] = [
         'Внутри — React Native и Expo с нативными модулями: виджеты на WidgetKit и Glance, синхронизация через iCloud и Google Drive, доступность (VoiceOver, крупный текст, high contrast), внутренние покупки и ASO.',
       ],
       en: [
-        'Vazon Hub is my mobile app studio: products for students and personal finance that I run end-to-end — from idea and design to App Store and Google Play releases.',
-        'It started with Bsuir Time — a BSUIR schedule app with widgets and an Apple Watch app — followed by Centry, a finance tracker with offline entry in seconds. Now I am building UniTime: a schedule that works across multiple universities at once.',
+        'Vazon Hub is my mobile app studio: products for students and personal finance that I run end-to-end, from idea and design to App Store and Google Play releases.',
+        'It started with Bsuir Time (a BSUIR schedule app with widgets and an Apple Watch app), followed by Centry, a finance tracker with offline entry in seconds. Now I am building UniTime: a schedule that works across multiple universities at once.',
         'Under the hood it is React Native and Expo with native modules: WidgetKit and Glance widgets, iCloud and Google Drive sync, accessibility (VoiceOver, large text, high contrast), in-app purchases and ASO.',
       ],
     },
@@ -55,8 +55,8 @@ export const experience: ExperienceEntry[] = [
         'Поднял офлайн-GitLab с CI/CD и security-правилами для внутренних репозиториев.',
       ],
       en: [
-        'DataForge (February — May): a DWH platform built with React and Nest.js with TypeORM.',
-        'WealthCharts (since May): broker platform integrations — onboarding new firms into the product and maintaining existing integrations.',
+        'DataForge (February–May): a DWH platform built with React and Nest.js with TypeORM.',
+        'WealthCharts (since May): broker platform integrations, onboarding new firms into the product and maintaining existing integrations.',
         'Day-to-day AWS: EC2, ECS, Lambda, DynamoDB, S3, ECR and code pipelines.',
         'Set up a self-hosted GitLab with CI/CD and security rules for internal repositories.',
       ],
@@ -69,7 +69,7 @@ export const experience: ExperienceEntry[] = [
       ],
       en: [
         'Yumasoft is the team where I work on fintech products across the full stack: React on the front, Nest.js with TypeORM on the back.',
-        'I started on DataForge, a DWH platform. Since May I have been on WealthCharts — a trading platform where I own broker integrations: onboarding new firms into the product and maintaining existing integrations.',
+        'I started on DataForge, a DWH platform. Since May I have been on WealthCharts, a trading platform where I own broker integrations: onboarding new firms into the product and maintaining existing integrations.',
         'The infrastructure lives on AWS: EC2, ECS, Lambda, DynamoDB, S3, ECR and code pipelines. I also set up a self-hosted GitLab with CI/CD and security rules for internal repositories.',
       ],
     },
@@ -165,7 +165,7 @@ export const experience: ExperienceEntry[] = [
       ],
       en: [
         'A web platform for analytics and statistics: I built the frontend and a REST API on Node.js with Express.',
-        'I set up CI/CD, prototyped UI/UX in Figma and wired up S3 file storage. Beyond code — took part in negotiations and spoke at public events while the team was raising investment.',
+        'I set up CI/CD, prototyped UI/UX in Figma and wired up S3 file storage. Beyond code, I took part in negotiations and spoke at public events while the team was raising investment.',
       ],
     },
     tags: ['React', 'Node.js', 'Express', 'Tailwind CSS', 'Figma'],
@@ -201,7 +201,7 @@ export const experience: ExperienceEntry[] = [
       ],
       en: [
         'Studying at the Faculty of Computer Systems and Networks at BSUIR.',
-        'Alongside my studies I built promo landing pages for the university’s programming olympiads — more on each below.',
+        'Alongside my studies I built promo landing pages for the university’s programming olympiads, with details on each below.',
         'Published two papers at BSUIR student research conferences: on phishing as a social engineering threat (2024) and on methods for studying psycho-emotional state and personal harmony (2025, with academic advisor D. A. Mozalevskaya).',
       ],
     },

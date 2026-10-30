@@ -1,7 +1,7 @@
 import type { SVGProps } from 'react'
 
 /*
- * Брендовые иконки (в lucide-react их больше нет). Пути — Simple Icons,
+ * Брендовые иконки (Phosphor их не содержит). Пути — Simple Icons,
  * приведены к viewBox 24×24 и currentColor.
  */
 

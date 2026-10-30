@@ -9,7 +9,7 @@ const NAV_ANCHORS = ['about', 'experience', 'projects', 'skills', 'contacts'] as
 export function Header({ locale }: { locale: Locale }) {
   return (
     <header className="sticky top-3 z-50 px-4 sm:top-4 sm:px-6">
-      <div className="glass border-glass-line mx-auto flex h-12 max-w-5xl items-center justify-between gap-4 rounded-2xl border px-4 sm:px-6">
+      <div className="glass border-glass-line mx-auto flex h-12 max-w-5xl items-center justify-between gap-4 rounded-xl border px-4 sm:px-6">
         <Link
           href={`/${locale}`}
           className="text-fg hover:text-accent font-mono text-sm font-medium transition-colors"

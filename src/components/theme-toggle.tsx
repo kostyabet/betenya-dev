@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useSyncExternalStore } from 'react'
-import { Monitor, Moon, Sun } from 'lucide-react'
+import { Monitor, Moon, Sun } from '@phosphor-icons/react/dist/ssr'
 
 type Theme = 'system' | 'light' | 'dark'
 
@@ -77,7 +77,7 @@ export function ThemeToggle({
       title={current}
       className="text-muted hover:text-fg rounded-md p-2 transition-colors"
     >
-      <Icon size={18} aria-hidden="true" />
+      <Icon size={18} weight="light" aria-hidden="true" />
     </button>
   )
 }
