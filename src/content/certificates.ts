@@ -2,6 +2,13 @@ import type { Certificate } from './types'
 
 export const certificates: Certificate[] = [
   {
+    title: 'Claude Academy: Introduction to Claude Tag',
+    issuer: 'Anthropic',
+    issuerUrl: 'https://www.anthropic.com',
+    issued: '2026-11',
+    credentialId: 'a87aa71699b2459c4c076d64d64bc56b',
+  },
+  {
     title: 'Claude Academy: Introduction to Claude Cowork',
     issuer: 'Anthropic',
     issuerUrl: 'https://www.anthropic.com',
