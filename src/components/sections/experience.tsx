@@ -1,4 +1,5 @@
 import { Fragment, type CSSProperties } from 'react'
+import Link from 'next/link'
 import { GraduationCap, FileText } from '@phosphor-icons/react/dist/ssr'
 import type { Locale } from '@/lib/i18n'
 import { formatDuration, formatPeriod, monthIndex } from '@/lib/format'
@@ -231,16 +232,30 @@ function Timeline({ locale, nowIdx }: { locale: Locale; nowIdx: number }) {
                   transform: `translateX(${left ? -12 : 12}px)`,
                 }}
               />
-              <article
-                className={`glass border-glass-line relative rounded-xl border p-4 ${ongoing ? 'self-start' : 'self-center'}`}
-                style={{ gridColumn: left ? 1 : 3, gridRow: `${rowOf(end)} / ${cardRowEnd}` }}
-              >
-                <div
-                  className="bg-line absolute top-4 h-px"
-                  style={{ width: 'calc(3rem - 14px)', [left ? 'left' : 'right']: '100%' }}
-                />
-                <EntryBody entry={entry} locale={locale} />
-              </article>
+              {entry.slug ? (
+                <Link
+                  href={`/${locale}/experience/${entry.slug}`}
+                  className={`glass border-glass-line hover:border-accent group relative block rounded-xl border p-4 transition-colors ${ongoing ? 'self-start' : 'self-center'}`}
+                  style={{ gridColumn: left ? 1 : 3, gridRow: `${rowOf(end)} / ${cardRowEnd}` }}
+                >
+                  <div
+                    className="bg-line absolute top-4 h-px"
+                    style={{ width: 'calc(3rem - 14px)', [left ? 'left' : 'right']: '100%' }}
+                  />
+                  <EntryBody entry={entry} locale={locale} plainCompany />
+                </Link>
+              ) : (
+                <article
+                  className={`glass border-glass-line relative rounded-xl border p-4 ${ongoing ? 'self-start' : 'self-center'}`}
+                  style={{ gridColumn: left ? 1 : 3, gridRow: `${rowOf(end)} / ${cardRowEnd}` }}
+                >
+                  <div
+                    className="bg-line absolute top-4 h-px"
+                    style={{ width: 'calc(3rem - 14px)', [left ? 'left' : 'right']: '100%' }}
+                  />
+                  <EntryBody entry={entry} locale={locale} />
+                </article>
+              )}
             </Fragment>
           )
         })}
@@ -283,7 +298,13 @@ function StackedList({ locale }: { locale: Locale }) {
               {ui.experience.education[locale]}
             </p>
           )}
-          <EntryBody entry={entry} locale={locale} />
+          {entry.kind === 'work' && entry.slug ? (
+            <Link href={`/${locale}/experience/${entry.slug}`} className="group block">
+              <EntryBody entry={entry} locale={locale} plainCompany />
+            </Link>
+          ) : (
+            <EntryBody entry={entry} locale={locale} />
+          )}
 
           {entry.kind === 'education' && <UniversityExtras locale={locale} education={entry} />}
         </li>

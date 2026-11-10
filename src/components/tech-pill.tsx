@@ -106,7 +106,7 @@ export function TechPills({ items, className }: { items: string[]; className?: s
       {items.map((item) => (
         <li
           key={item}
-          className="glass border-glass-line text-muted inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium"
+          className="chip border-glass-line text-muted inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium"
         >
           <span className="text-faint shrink-0">{techIcon(item)}</span>
           {item}

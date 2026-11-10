@@ -1,10 +1,12 @@
-import type { CSSProperties } from 'react'
+import type { CSSProperties, ReactNode } from 'react'
+import Link from 'next/link'
 import type { Locale } from '@/lib/i18n'
-import { projects } from '@/content/projects'
+import { projects, hasProductPage } from '@/content/projects'
 import type { Project, ProjectAccent, ProjectLinkKind } from '@/content/types'
 import { ui } from '@/content/ui'
 import { Section } from '@/components/section'
 import { TechPills } from '@/components/tech-pill'
+import { ShowMore } from '@/components/show-more'
 
 const STATUS_DOT: Record<Project['status'], string> = {
   released: 'bg-ok',
@@ -51,13 +53,49 @@ function cardStyle(accent?: ProjectAccent): CSSProperties | undefined {
   return accent ? ({ '--tint': TINT_VAR[accent] } as CSSProperties) : undefined
 }
 
-/** Золотая карточка главного проекта — первой строкой на всю ширину грида. */
-function FlagshipCard({ project, locale }: { project: Project; locale: Locale }) {
+/**
+ * Обёртка-ссылка карточки: у основных продуктов — внутренняя подстраница,
+ * у остальных — внешний ресурс (primaryHref).
+ */
+function CardShell({
+  project,
+  locale,
+  className,
+  style,
+  children,
+}: {
+  project: Project
+  locale: Locale
+  className: string
+  style?: CSSProperties
+  children: ReactNode
+}) {
+  if (hasProductPage(project.slug)) {
+    return (
+      <Link href={`/${locale}/projects/${project.slug}`} className={className} style={style}>
+        {children}
+      </Link>
+    )
+  }
   return (
     <a
       href={primaryHref(project)}
       target="_blank"
       rel="noopener noreferrer"
+      className={className}
+      style={style}
+    >
+      {children}
+    </a>
+  )
+}
+
+/** Золотая карточка главного проекта — первой строкой на всю ширину грида. */
+function FlagshipCard({ project, locale }: { project: Project; locale: Locale }) {
+  return (
+    <CardShell
+      project={project}
+      locale={locale}
       style={cardStyle(project.accent)}
       className="group glass tinted col-span-full block rounded-xl border p-6 transition-colors sm:p-8"
     >
@@ -80,16 +118,15 @@ function FlagshipCard({ project, locale }: { project: Project; locale: Locale })
       </div>
       <p className="text-muted mt-3 max-w-2xl leading-relaxed">{project.tagline[locale]}</p>
       <TechPills items={project.stack} className="mt-5" />
-    </a>
+    </CardShell>
   )
 }
 
 function ProjectCard({ project, locale }: { project: Project; locale: Locale }) {
   return (
-    <a
-      href={primaryHref(project)}
-      target="_blank"
-      rel="noopener noreferrer"
+    <CardShell
+      project={project}
+      locale={locale}
       style={cardStyle(project.accent)}
       className={`group glass block rounded-xl border p-5 transition-colors ${
         project.accent ? 'tinted' : 'border-glass-line hover:border-accent'
@@ -111,7 +148,7 @@ function ProjectCard({ project, locale }: { project: Project; locale: Locale }) 
       </div>
       <p className="text-muted mt-2 text-sm leading-relaxed">{project.tagline[locale]}</p>
       <TechPills items={project.stack} className="mt-4" />
-    </a>
+    </CardShell>
   )
 }
 
@@ -119,14 +156,21 @@ export function Projects({ locale }: { locale: Locale }) {
   const flagship = projects.find((p) => p.accent === 'gold')
   const rest = projects.filter((p) => p !== flagship)
 
+  /* Первые 2 «строки» грида: флагман (во всю ширину) + 3 карточки на lg. */
+  const cards = [
+    ...(flagship ? [<FlagshipCard key={flagship.slug} project={flagship} locale={locale} />] : []),
+    ...rest.map((project) => <ProjectCard key={project.slug} project={project} locale={locale} />),
+  ]
+
   return (
     <Section id="projects" title={ui.sections.projects[locale]}>
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {flagship && <FlagshipCard project={flagship} locale={locale} />}
-        {rest.map((project) => (
-          <ProjectCard key={project.slug} project={project} locale={locale} />
-        ))}
-      </div>
+      <ShowMore
+        initial={4}
+        gridClassName="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+        labels={{ more: ui.projects.showMore[locale], less: ui.projects.showLess[locale] }}
+      >
+        {cards}
+      </ShowMore>
     </Section>
   )
 }

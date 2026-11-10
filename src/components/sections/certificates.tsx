@@ -4,6 +4,7 @@ import type { Certificate } from '@/content/types'
 import { formatMonth } from '@/lib/format'
 import { Section } from '@/components/section'
 import { ui } from '@/content/ui'
+import { ShowMore } from '@/components/show-more'
 
 function CertificateCard({ certificate, locale }: { certificate: Certificate; locale: Locale }) {
   const body = (
@@ -35,7 +36,11 @@ function CertificateCard({ certificate, locale }: { certificate: Certificate; lo
 export function Certificates({ locale }: { locale: Locale }) {
   return (
     <Section id="certificates" title={ui.sections.certificates[locale]}>
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <ShowMore
+        initial={3}
+        gridClassName="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+        labels={{ more: ui.projects.showMore[locale], less: ui.projects.showLess[locale] }}
+      >
         {certificates.map((certificate) => (
           <CertificateCard
             key={certificate.credentialId ?? certificate.title}
@@ -43,7 +48,7 @@ export function Certificates({ locale }: { locale: Locale }) {
             locale={locale}
           />
         ))}
-      </div>
+      </ShowMore>
     </Section>
   )
 }

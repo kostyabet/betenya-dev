@@ -106,11 +106,22 @@ body::before {
 @layer components {
   .glass {
     background: var(--glass);
-    -webkit-backdrop-filter: blur(20px) saturate(160%);
-    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(12px) saturate(160%);
+    backdrop-filter: blur(12px) saturate(160%);
     box-shadow:
       inset 0 1px 0 0 var(--glass-highlight),
       0 8px 24px -12px var(--glass-shadow);
+  }
+
+  /*
+   * Дешёвый «чип» для многочисленных мелких элементов (таблетки стека).
+   * На их размере backdrop-filter визуально неразличим, но каждый такой
+   * элемент — отдельный слой композитинга: десятки blur-слоёв кладут GPU
+   * мобильных на скролле. Поэтому здесь — обычный полупрозрачный фон без blur.
+   */
+  .chip {
+    background: var(--glass);
+    box-shadow: inset 0 1px 0 0 var(--glass-highlight);
   }
 
   /*

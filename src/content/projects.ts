@@ -4,6 +4,7 @@ export const projects: Project[] = [
   {
     slug: 'unitime',
     name: 'UniTime',
+    logo: '/logos/unitime.svg',
     accent: 'gold',
     status: 'in-dev',
     tagline: {
@@ -13,13 +14,29 @@ export const projects: Project[] = [
     description: {
       ru: [
         'UniTime — платформа расписаний сразу для нескольких университетов, выросшая из Bsuir Time. Идея та же: расписание, которое ощущается нативным приложением, а не обёрткой над сайтом деканата, — но теперь для любого подключённого вуза.',
-        'Проект в активной разработке: проектирую систему так, чтобы добавление нового университета было вопросом адаптера к его API, а не отдельного приложения.',
-        // TODO: уточнить список первых поддерживаемых вузов и сроки релиза.
+        'Главное обещание — точности можно верить. За кулисами UniTime проверяет каждую пару прежде, чем показать её: сверяет с источником, ищет ошибки и пересечения. Если данные сомнительные, остаётся последняя корректная версия, а не битое расписание.',
+        'Источник у каждого вуза свой — сайт, Excel, PDF или кривая табличка, — а на выходе всё приводится к одному аккуратному виду: неделя целиком с границами чётной и нечётной, пара на одной карточке (предмет, тип, аудитория, преподаватель), светлая и тёмная темы. Переносы, замены и отмены остаются в расписании и честно подписаны, а не исчезают молча.',
+        'Архитектурно система спроектирована так, чтобы добавление нового университета было вопросом адаптера к его данным, а не отдельного приложения: одно ядро, много вузов.',
       ],
       en: [
         'UniTime is a schedule platform for multiple universities at once, grown out of Bsuir Time. The idea is the same: a schedule that feels like a native app rather than a wrapper around the dean’s office website, but now for any connected university.',
-        'The project is in active development: the system is designed so that adding a new university is a matter of writing an adapter for its API, not building a separate app.',
-        // TODO: confirm the list of initially supported universities and release dates.
+        'The core promise is trustworthy accuracy. Behind the scenes UniTime checks every class before showing it: it compares with the source, looks for errors and clashes. If the data is doubtful, the last correct version stays — not a broken schedule.',
+        'Every university has its own source — a website, Excel, PDF or a messy table — and it all comes out as one tidy view: the whole week with odd/even boundaries, a class on a single card (subject, type, room, teacher), light and dark themes. Moves, replacements and cancellations stay in the schedule and are labelled honestly, not silently dropped.',
+        'Architecturally the system is designed so that adding a new university is a matter of an adapter to its data, not a separate app: one core, many universities.',
+      ],
+    },
+    highlights: {
+      ru: [
+        'Каждая пара проверяется перед показом: сверка с источником, поиск ошибок и пересечений',
+        'Любой формат источника — сайт, Excel, PDF — приводится к единому виду',
+        'Чётные и нечётные недели: приложение само знает, какая сейчас',
+        'Одно ядро на много вузов — новый университет добавляется адаптером',
+      ],
+      en: [
+        'Every class is verified before display: compared with the source, checked for errors and clashes',
+        'Any source format — website, Excel, PDF — normalized to one view',
+        'Odd and even weeks: the app knows which one it is',
+        'One core across many universities — a new one is added via an adapter',
       ],
     },
     stack: ['React Native', 'Expo', 'TypeScript'],
@@ -30,9 +47,19 @@ export const projects: Project[] = [
         href: 'https://unitimes.app',
       },
       {
+        kind: 'appstore',
+        label: { ru: 'App Store', en: 'App Store' },
+        href: 'https://apps.apple.com/by/app/unitime-university-schedule/id6828855707',
+      },
+      {
+        kind: 'googleplay',
+        label: { ru: 'Google Play', en: 'Google Play' },
+        href: 'https://play.google.com/store/apps/details?id=com.vazon.unitime',
+      },
+      {
         kind: 'telegram',
         label: { ru: 'Канал разработки', en: 'Dev channel' },
-        href: 'https://t.me/multibelbet',
+        href: 'https://t.me/unitimeschedule',
       },
     ],
   },
@@ -225,47 +252,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: 'expo-native-modules',
-    name: 'Expo native modules',
-    status: 'released',
-    tagline: {
-      ru: 'Три open-source модуля для нативных фич в React Native / Expo',
-      en: 'Three open-source modules for native features in React Native / Expo',
-    },
-    description: {
-      ru: [
-        'Пакет библиотек, выросших из работы над Bsuir Time и Centry, — нативные возможности, которых не хватало в стандартном Expo:',
-        'expo-accessibility-plus — системные флаги доступности, которые не отдаёт стандартный AccessibilityInfo: differentiate-without-color, reduce transparency, bold text, invert colors, content size category.',
-        'expo-icloud-kv — key/value-хранилище на NSUbiquitousKeyValueStore: синхронизация небольших кусочков состояния между Apple-устройствами пользователя с Promise-based API.',
-        'expo-widgetkit-bridge — перезагрузка виджетов iOS из React Native: мост в одну строку к reloadAllTimelines и reloadTimelines(ofKind:).',
-      ],
-      en: [
-        'A set of libraries that grew out of Bsuir Time and Centry, adding native capabilities missing from stock Expo:',
-        'expo-accessibility-plus exposes the system accessibility flags stock AccessibilityInfo hides: differentiate-without-color, reduce transparency, bold text, invert colors, content size category.',
-        'expo-icloud-kv is a key/value store backed by NSUbiquitousKeyValueStore that syncs small pieces of app state across a user’s Apple devices with a Promise-based API.',
-        'expo-widgetkit-bridge reloads iOS widgets from React Native with a one-call bridge to reloadAllTimelines and reloadTimelines(ofKind:).',
-      ],
-    },
-    stack: ['TypeScript', 'Swift', 'Expo Modules API'],
-    links: [
-      {
-        kind: 'github',
-        label: { ru: 'expo-accessibility-plus', en: 'expo-accessibility-plus' },
-        href: 'https://github.com/vazonhub/expo-accessibility-plus',
-      },
-      {
-        kind: 'github',
-        label: { ru: 'expo-icloud-kv', en: 'expo-icloud-kv' },
-        href: 'https://github.com/vazonhub/expo-icloud-kv',
-      },
-      {
-        kind: 'github',
-        label: { ru: 'expo-widgetkit-bridge', en: 'expo-widgetkit-bridge' },
-        href: 'https://github.com/vazonhub/expo-widgetkit-bridge',
-      },
-    ],
-  },
-  {
     slug: 'news',
     name: 'News',
     status: 'done',
@@ -371,32 +357,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: 'tcp-socket-server',
-    name: 'TCP Socket Server',
-    status: 'done',
-    tagline: {
-      ru: 'Сервер на чистых TCP-сокетах',
-      en: 'A raw-socket TCP server',
-    },
-    description: {
-      ru: [
-        'Сервер на TypeScript поверх TCP-сокетов: собственный протокол обмена сообщениями без HTTP-обвязки.',
-        // TODO: уточнить детали протокола.
-      ],
-      en: [
-        'A TypeScript server built on raw TCP sockets: a custom message protocol with no HTTP layer.',
-      ],
-    },
-    stack: ['TypeScript', 'Node.js', 'TCP'],
-    links: [
-      {
-        kind: 'github',
-        label: { ru: 'GitHub', en: 'GitHub' },
-        href: 'https://github.com/kostyabet/tcpSocketServer-ts',
-      },
-    ],
-  },
-  {
     slug: 'border-gen',
     name: 'Border Gen',
     status: 'released',
@@ -457,31 +417,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: 'colors-list-fasm',
-    name: 'Colors List',
-    status: 'done',
-    tagline: {
-      ru: 'Все цвета MS-DOS одним экраном — на чистом FASM',
-      en: 'Every MS-DOS color on one screen, in pure FASM',
-    },
-    description: {
-      ru: [
-        'Крошечная программа на FASM в реальном режиме процессора: выводит палитру цветов MS-DOS. Из той же серии любви к низкоуровневому, что 15 Puzzle и TacticsGame.',
-      ],
-      en: [
-        'A tiny FASM program in real processor mode that prints the MS-DOS color palette. From the same low-level love affair as 15 Puzzle and TacticsGame.',
-      ],
-    },
-    stack: ['FASM', 'Assembly', 'MS-DOS'],
-    links: [
-      {
-        kind: 'github',
-        label: { ru: 'GitHub', en: 'GitHub' },
-        href: 'https://github.com/kostyabet/colors_list-fasm',
-      },
-    ],
-  },
-  {
     slug: 'task-control-manager',
     name: 'Task Control Manager',
     status: 'done',
@@ -510,4 +445,11 @@ export const projects: Project[] = [
 
 export function getProject(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug)
+}
+
+/** Основные продукты с отдельной подстраницей `/[locale]/projects/<slug>`. */
+export const productPageSlugs = ['unitime', 'bsuir-time', 'centry', 'tactics-game-fasm']
+
+export function hasProductPage(slug: string): boolean {
+  return productPageSlugs.includes(slug)
 }

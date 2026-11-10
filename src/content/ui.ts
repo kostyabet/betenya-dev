@@ -45,6 +45,8 @@ export const ui = {
     highlights: { ru: 'Ключевое', en: 'Highlights' },
     backToList: { ru: 'Все проекты', en: 'All projects' },
     openProject: { ru: 'Открыть проект', en: 'Open project' },
+    showMore: { ru: 'Показать ещё', en: 'Show more' },
+    showLess: { ru: 'Свернуть', en: 'Show less' },
   },
   skills: {
     learning: { ru: 'изучаю', en: 'learning' },
